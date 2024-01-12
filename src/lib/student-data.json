@@ -1,0 +1,302 @@
+[
+    {
+        "name": "Aria Frost",
+        "score": "A",
+        "percentage": 90,
+        "studentClass": 1
+    },
+    {
+        "name": "Ethan Drake",
+        "score": "D+",
+        "percentage": 65,
+        "studentClass": 1
+    },
+    {
+        "name": "Seraphina Vega",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 1
+    },
+    {
+        "name": "Oliver Knight",
+        "score": "E+",
+        "percentage": 55,
+        "studentClass": 1
+    },
+    {
+        "name": "Luna Rose",
+        "score": "D",
+        "percentage": 60,
+        "studentClass": 1
+    },
+    {
+        "name": "Mason Storm",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 1
+    },
+    {
+        "name": "Isabella Wilde",
+        "score": "B",
+        "percentage": 80,
+        "studentClass": 1
+    },
+    {
+        "name": "Noah Ember",
+        "score": "A",
+        "percentage": 90,
+        "studentClass": 1
+    },
+    {
+        "name": "Zoey Raven",
+        "score": "D+",
+        "percentage": 65,
+        "studentClass": 1
+    },
+    {
+        "name": "Alexander Blaze",
+        "score": "B",
+        "percentage": 80,
+        "studentClass": 1
+    },
+    {
+        "name": "Willow Sky",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 2
+    },
+    {
+        "name": "Sebastian Orion",
+        "score": "A+",
+        "percentage": 95,
+        "studentClass": 2
+    },
+    {
+        "name": "Aurora Storm",
+        "score": "C",
+        "percentage": 70,
+        "studentClass": 2
+    },
+    {
+        "name": "Liam Phoenix",
+        "score": "A",
+        "percentage": 90,
+        "studentClass": 2
+    },
+    {
+        "name": "Mia Shadow",
+        "score": "D",
+        "percentage": 60,
+        "studentClass": 2
+    },
+    {
+        "name": "Lucas Steele",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 2
+    },
+    {
+        "name": "Harper Star",
+        "score": "E+",
+        "percentage": 55,
+        "studentClass": 2
+    },
+    {
+        "name": "Elijah Stone",
+        "score": "B+",
+        "percentage": 85,
+        "studentClass": 2
+    },
+    {
+        "name": "Penelope Frost",
+        "score": "B+",
+        "percentage": 85,
+        "studentClass": 2
+    },
+    {
+        "name": "Logan Hawk",
+        "score": "B",
+        "percentage": 80,
+        "studentClass": 2
+    },
+    {
+        "name": "Sophia Nova",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 3
+    },
+    {
+        "name": "Jackson Frost",
+        "score": "A",
+        "percentage": 90,
+        "studentClass": 3
+    },
+    {
+        "name": "Amelia Rain",
+        "score": "F",
+        "percentage": 45,
+        "studentClass": 3
+    },
+    {
+        "name": "Caleb Hawk",
+        "score": "D",
+        "percentage": 60,
+        "studentClass": 3
+    },
+    {
+        "name": "Grace Ember",
+        "score": "C+",
+        "percentage": 75,
+        "studentClass": 3
+    },
+    {
+        "name": "Gabriel Storm",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 3
+    },
+    {
+        "name": "Scarlett Luna",
+        "score": "C",
+        "percentage": 70,
+        "studentClass": 3
+    },
+    {
+        "name": "Levi Eclipse",
+        "score": "C+",
+        "percentage": 75,
+        "studentClass": 3
+    },
+    {
+        "name": "Ava Blaze",
+        "score": "B+",
+        "percentage": 85,
+        "studentClass": 3
+    },
+    {
+        "name": "Samuel Frost",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 3
+    },
+    {
+        "name": "Stella Dawn",
+        "score": "E+",
+        "percentage": 55,
+        "studentClass": 4
+    },
+    {
+        "name": "Benjamin Nova",
+        "score": "D+",
+        "percentage": 65,
+        "studentClass": 4
+    },
+    {
+        "name": "Chloe Raven",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 4
+    },
+    {
+        "name": "Daniel Frost",
+        "score": "C+",
+        "percentage": 75,
+        "studentClass": 4
+    },
+    {
+        "name": "Emily Eclipse",
+        "score": "D",
+        "percentage": 60,
+        "studentClass": 4
+    },
+    {
+        "name": "Owen Drake",
+        "score": "C+",
+        "percentage": 75,
+        "studentClass": 4
+    },
+    {
+        "name": "Ruby Star",
+        "score": "A+",
+        "percentage": 95,
+        "studentClass": 4
+    },
+    {
+        "name": "Carter Storm",
+        "score": "A",
+        "percentage": 90,
+        "studentClass": 4
+    },
+    {
+        "name": "Lily Ember",
+        "score": "E",
+        "percentage": 50,
+        "studentClass": 4
+    },
+    {
+        "name": "Isaac Sky",
+        "score": "D+",
+        "percentage": 65,
+        "studentClass": 4
+    },
+    {
+        "name": "Evelyn Moon",
+        "score": "B",
+        "percentage": 80,
+        "studentClass": 5
+    },
+    {
+        "name": "Wyatt Blaze",
+        "score": "E+",
+        "percentage": 55,
+        "studentClass": 5
+    },
+    {
+        "name": "Victoria Raven",
+        "score": "C",
+        "percentage": 70,
+        "studentClass": 5
+    },
+    {
+        "name": "Henry Hawk",
+        "score": "C",
+        "percentage": 70,
+        "studentClass": 5
+    },
+    {
+        "name": "Zoe Storm",
+        "score": "A",
+        "percentage": 90,
+        "studentClass": 5
+    },
+    {
+        "name": "Julian Frost",
+        "score": "A+",
+        "percentage": 95,
+        "studentClass": 5
+    },
+    {
+        "name": "Penelope Rain",
+        "score": "D",
+        "percentage": 60,
+        "studentClass": 5
+    },
+    {
+        "name": "Nolan Orion",
+        "score": "C",
+        "percentage": 70,
+        "studentClass": 5
+    },
+    {
+        "name": "Scarlett Star",
+        "score": "C",
+        "percentage": 70,
+        "studentClass": 5
+    },
+    {
+        "name": "Xavier Blaze",
+        "score": "F",
+        "percentage": 45,
+        "studentClass": 5
+    }
+]
