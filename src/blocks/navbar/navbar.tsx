@@ -1,7 +1,7 @@
 import React from 'react';
 import lwsLogo from '../../assets/images/lws-logo-en.svg';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     return (
         <nav className="py-6">
             <div className="container px-4 mx-auto flex items-center justify-between gap-x-6 max-w-7xl">
