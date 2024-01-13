@@ -26,10 +26,10 @@ const BookCard = <T extends BookCardProps>({ book }: { book: T }) => {
             </div>
             {/* info */}
             <div className="space-y-3">
-                <h4 className="text-lg font-bold lg:text-xl">{book.title}</h4>
+                <h4 className="text-lg font-bold lg:text-xl">{book.title}-{book.publicationYear}</h4>
                 <div className="flex items-center justify-between">
                     <p className="text-xs lg:text-sm">By: <span>{book.author}</span></p>
-                    <p className="text-xs lg:text-sm">Pub: {book.publicationYear}</p>
+                    {/* <p className="text-xs lg:text-sm">Pub: {book.publicationYear}</p> */}
                 </div>
                 <div className="flex items-center justify-between">
                     <h4 className="text-lg font-bold lg:text-xl">${book.price}</h4>
