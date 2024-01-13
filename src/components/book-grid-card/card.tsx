@@ -4,7 +4,12 @@ import AddToCart from '../buttons/add-to-cart';
 import FavoriteButton from '../buttons/favorite';
 import { useState } from 'react';
 
-export type BookCardProps = Record<string, any>;
+export type BookCardProps = {
+    title: string;
+    author: string;
+    price: number;
+    publicationYear: number;
+};
 
 const BookCard = <T extends BookCardProps>({ book }: { book: T }) => {
     if (!book.title && !book.author && !book.price) {
@@ -22,9 +27,10 @@ const BookCard = <T extends BookCardProps>({ book }: { book: T }) => {
             {/* info */}
             <div className="space-y-3">
                 <h4 className="text-lg font-bold lg:text-xl">{book.title}</h4>
-                <p className="text-xs lg:text-sm">
-                    By: <span>{book.author}</span>
-                </p>
+                <div className="flex items-center justify-between">
+                    <p className="text-xs lg:text-sm">By: <span>{book.author}</span></p>
+                    <p className="text-xs lg:text-sm">Pub: {book.publicationYear}</p>
+                </div>
                 <div className="flex items-center justify-between">
                     <h4 className="text-lg font-bold lg:text-xl">${book.price}</h4>
                     {/* stars */}
