@@ -8,3 +8,5 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 [Vercel Link](https://lws-rnext-assignment-1-by-santo.vercel.app/#)
+
+[GitHub ClassRoom Link](https://github.com/Learn-with-Sumit/assignment-1-smartgrade-showcase-santokhan.git)
