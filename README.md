@@ -30,3 +30,5 @@ export default {
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
 [Vercel Link](https://lws-rnext-assignment-2-by-santo.vercel.app/)
+
+[GitHub Classroom link](https://github.com/Learn-with-Sumit/assignment-2-book-finder-app-santokhan)
