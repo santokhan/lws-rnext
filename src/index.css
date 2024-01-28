@@ -1,0 +1,12 @@
+@tailwind base;
+
+@layer base {
+
+    /* Styling for the backdrop using ::backdrop */
+    dialog::backdrop {
+        @apply bg-black bg-opacity-50;
+    }
+}
+
+@tailwind components;
+@tailwind utilities;
