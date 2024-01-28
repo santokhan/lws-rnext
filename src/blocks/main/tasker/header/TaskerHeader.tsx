@@ -1,11 +1,12 @@
 // TaskerHeader.tsx
 
-import { FC, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
 import AddTaskFormModal from '../../../modal/add-task/AddTaskFormModal';
 import { useTaskContext } from '../../../../context/tasker-context';
 import ModalContainer from '../../../../components/task-modal/ModalContainer';
 
 const TaskerHeader: FC = () => {
+    const [needle, setneedle] = useState<string>("");
     const [isOpen, setisOpen] = useState<boolean>(false);
     const dialogFormRef = useRef<HTMLDivElement | null>(null);
     const openerRef = useRef<HTMLButtonElement | null>(null);
@@ -39,13 +40,20 @@ const TaskerHeader: FC = () => {
         };
     }, [isOpen]);
 
-    const { handleDeleteAll } = useTaskContext()
+    const { handleDeleteAll, handleFilter } = useTaskContext();
+
+    function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        // submit
+        handleFilter(needle)
+    }
 
     return (
         <div className="mb-14 items-center justify-between sm:flex">
             <h2 className="text-2xl font-semibold max-sm:mb-4">Your Tasks</h2>
             <div className="flex items-center space-x-5">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="flex">
                         <div className="relative overflow-hidden rounded-lg text-gray-50 md:min-w-[380px] lg:min-w-[440px]">
                             <input
@@ -53,7 +61,8 @@ const TaskerHeader: FC = () => {
                                 id="search-dropdown"
                                 className="z-20 block w-full bg-gray-800 px-4 py-2 pr-10 focus:outline-none"
                                 placeholder="Search Task"
-                                required
+                                value={needle}
+                                onChange={e => { setneedle(e.target.value) }}
                             />
                             <button type="submit" className="absolute right-2 top-0 h-full rounded-e-lg text-white md:right-4">
                                 <svg className="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

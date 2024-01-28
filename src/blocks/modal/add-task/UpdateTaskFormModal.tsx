@@ -12,7 +12,7 @@ export type AddTaskProps = {
 }
 
 const UpdateTaskFormModal: React.FC<AddTaskProps> = ({ hideModal, initialTask }) => {
-    const [state, setstate] = useState<Task>(initialTask);
+    const [state, setState] = useState<Task>(initialTask);
 
     const { handleUpdateTasks } = useTaskContext();
 
@@ -26,7 +26,9 @@ const UpdateTaskFormModal: React.FC<AddTaskProps> = ({ hideModal, initialTask })
         hideModal();
     }
 
-    const { tasks } = useTaskContext();
+    const handleTagsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState((prev) => ({ ...prev, tags: e.target.value }));
+    };
 
     return (
         <form onSubmit={handleSubmit} className="relative mx-auto my-10 w-full max-w-[740px] rounded-xl border border-[#FEFBFB]/[36%] bg-[#191D26] p-9 max-md:px-4 lg:my-20 lg:p-11">
@@ -49,7 +51,7 @@ const UpdateTaskFormModal: React.FC<AddTaskProps> = ({ hideModal, initialTask })
                         name="title"
                         id="title"
                         value={state.title}
-                        onChange={e => { setstate((prev) => ({ ...prev, title: e.target.value })) }}
+                        onChange={e => { setState((prev) => ({ ...prev, title: e.target.value })) }}
                         required
                     />
                 </div>
@@ -61,13 +63,12 @@ const UpdateTaskFormModal: React.FC<AddTaskProps> = ({ hideModal, initialTask })
                         name="description"
                         id="description"
                         value={state.description}
-                        onChange={e => { setstate((prev) => ({ ...prev, description: e.target.value })) }}
+                        onChange={e => { setState((prev) => ({ ...prev, description: e.target.value })) }}
                         required
                     ></textarea>
                 </div>
                 {/* input group */}
                 <div className="grid-cols-2 gap-x-4 max-md:space-y-9 md:grid lg:gap-x-10 xl:gap-x-20">
-                    {/* tags */}
                     <div className="space-y-2 lg:space-y-3">
                         <label htmlFor="tags">Tags</label>
                         <input
@@ -76,7 +77,7 @@ const UpdateTaskFormModal: React.FC<AddTaskProps> = ({ hideModal, initialTask })
                             name="tags"
                             id="tags"
                             value={state.tags}
-                            // onChange={e => { setstate((prev) => ({ ...prev, tags: e.target.value })) }}
+                            onChange={handleTagsChange}
                             required
                         />
                     </div>
@@ -88,7 +89,7 @@ const UpdateTaskFormModal: React.FC<AddTaskProps> = ({ hideModal, initialTask })
                             name="priority"
                             id="priority"
                             value={state.priority}
-                            onChange={e => { setstate((prev) => ({ ...prev, priority: e.target.value })) }}
+                            onChange={e => { setState((prev) => ({ ...prev, priority: e.target.value })) }}
                             required
                         >
                             <option value="">Select Priority</option>
@@ -108,7 +109,7 @@ const UpdateTaskFormModal: React.FC<AddTaskProps> = ({ hideModal, initialTask })
                     Update Task
                 </button>
             </div>
-            <pre className='overflow-hidden'>{JSON.stringify(tasks, null, 2)}</pre>
+            {/* <pre className='overflow-hidden'>{JSON.stringify(tasks, null, 2)}</pre> */}
         </form>
     );
 };

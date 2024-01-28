@@ -6,6 +6,7 @@ import UpdateTaskFormModal from "../../../modal/add-task/UpdateTaskFormModal";
 import ModalContainer from "../../../../components/task-modal/ModalContainer";
 import { Task } from "../../../../reducer/reducer";
 import AddTaskFormModal from "../../../modal/add-task/AddTaskFormModal";
+import { colorList } from "../../../../utils/colors";
 
 const TaskTable: React.FC = () => {
     const [isOpen, setisOpen] = useState<boolean>(false);
@@ -41,7 +42,7 @@ const TaskTable: React.FC = () => {
         };
     }, [isOpen]);
 
-    const { tasks, handleDelete } = useTaskContext();
+    const { filteredTasks, tasks, handleDelete, handleStarred } = useTaskContext();
 
     return (
         <div className="overflow-auto">
@@ -59,45 +60,45 @@ const TaskTable: React.FC = () => {
                 <tbody>
                     {/* Sample Task Rows */}
                     {/* Replace with dynamic data based on your needs */}
-                    {tasks.map((task: Task) =>
+                    {(filteredTasks || tasks).map((task: Task) =>
                         <tr key={task.id} className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2">
                             <td>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="icon icon-tabler icon-tabler-star"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="2"
-                                    stroke="yellow"
-                                    fill="yellow"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path
-                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
-                                    />
-                                </svg>
+                                <button type="button" onClick={() => { handleStarred(task.id) }}>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="icon icon-tabler icon-tabler-star w-6 h-6 translate-y-1 hover:opacity-90"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="2"
+                                        stroke={task.starred ? "yellow" : "white"}
+                                        fill={task.starred ? "yellow" : ""}
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                        />
+                                    </svg>
+                                </button>
                             </td>
-                            <td>Integration API</td>
+                            <td>{task.title}</td>
                             <td>
-                                <div>Connect an existing API to a third-party database using secure methods and handle data exchange efficiently.</div>
+                                <div>{task.description}</div>
                             </td>
                             <td>
                                 <ul className="flex justify-center gap-1.5 flex-wrap">
-                                    <li>
-                                        <span className="inline-block h-5 whitespace-nowrap rounded-[45px] bg-[#00D991A1] px-2.5 text-sm capitalize text-[#F4F5F6]">Web</span>
-                                    </li>
-                                    <li>
-                                        <span className="inline-block h-5 whitespace-nowrap rounded-[45px] bg-[#1C92FFB0] px-2.5 text-sm capitalize text-[#F4F5F6]">Python</span>
-                                    </li>
-                                    <li>
-                                        <span className="inline-block h-5 whitespace-nowrap rounded-[45px] bg-[#FE1A1AB5] px-2.5 text-sm capitalize text-[#F4F5F6]">API</span>
-                                    </li>
+                                    {
+                                        task.tags.split(",").map((tag, tagIdx) => (
+                                            <li key={tagIdx}>
+                                                <span className={`inline-block h-5 whitespace-nowrap rounded-[45px] px-2.5 text-sm capitalize text-[#F4F5F6]`} style={{
+                                                    background: colorList[tagIdx]
+                                                }}>{tag.trim()}</span>
+                                            </li>
+                                        ))
+                                    }
                                 </ul>
                             </td>
-                            <td className="text-center">High</td>
+                            <td className="text-center capitalize">{task.priority}</td>
                             <td>
                                 <div className="flex items-center justify-center space-x-3">
                                     <button className="text-red-500" onClick={() => { handleDelete(task.id) }}>Delete</button>

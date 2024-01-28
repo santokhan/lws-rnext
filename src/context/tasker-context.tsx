@@ -2,11 +2,14 @@ import { createContext, useContext } from 'react';
 import { InputTask, Task } from '../reducer/reducer';
 
 export type Value = {
-    tasks: Task[]
+    tasks: Task[];
+    handleStarred: (id: string) => void;
     handleAddTasks: (task: InputTask) => void;
     handleUpdateTasks: (task: Task) => void;
     handleDelete: (id: string) => void;
     handleDeleteAll: () => void;
+    filteredTasks: Task[] | null;
+    handleFilter: (title: string) => void;
 }
 
 // Create the context with an initial value
