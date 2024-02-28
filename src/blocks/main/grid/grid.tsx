@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { ArticleListSchemaType } from '../../../utils/schema';
 import useFetchApiData from '../../../hook/news-feeder';
 import NewsItemIncludeImage, { NewsItem, NewsItemIncludeImage2, NewsItemRight, NewsItemRightIncludeImage } from './news-item';
