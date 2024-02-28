@@ -1,0 +1,1 @@
+export const newsFeedURL = "http://localhost:8000/v2/";
