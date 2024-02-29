@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { z } from 'zod';
 import { ArticleSchema } from '../../../utils/schema';
 
-export const PublishedAt: FC<{ publishedAt: Date }> = ({ publishedAt }) => {
+export const PublishedAt: FC<{ publishedAt: string }> = ({ publishedAt }) => {
     return (
         <p className="mt-5 text-base text-[#94908C]">
-            {publishedAt.toLocaleString()}
+            {publishedAt}
         </p>
     )
 }

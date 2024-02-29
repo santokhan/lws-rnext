@@ -7,7 +7,7 @@ export const ArticleSchema = z.object({
     description: z.string().nullable(),
     url: z.string(),
     urlToImage: z.string().nullable(),
-    publishedAt: z.date(),
+    publishedAt: z.string(),
     content: z.string().nullable(),
 });
 
