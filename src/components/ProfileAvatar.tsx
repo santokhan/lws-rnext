@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { avatarURL } from '../utils/api-url';
+import ProfileEditButton from './ProfileEditButton';
 
 interface ProfileAvatarProps {
     children: ReactNode;
@@ -18,10 +19,9 @@ interface ProfileOrInitialProps {
     thumbnail: unknown;
     initial: string;
     className?: string;
-    children: ReactNode;
 }
 
-export const ProfileOrInitial: FC<ProfileOrInitialProps> = ({ thumbnail, initial, className = "bg-indigo-600", children }) => {
+export const ProfileOrInitial: FC<ProfileOrInitialProps> = ({ thumbnail, initial, className = "bg-indigo-600" }) => {
     return (
         <ProfileAvatar className={className}>
             {
@@ -32,7 +32,7 @@ export const ProfileOrInitial: FC<ProfileOrInitialProps> = ({ thumbnail, initial
                         {initial}
                     </div>
             }
-            {children}
+            <ProfileEditButton onClick={() => { }} />
         </ProfileAvatar>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axxios from '../axios/axiosInstance';
 import { Blog, blogSchema } from '../schema/blogs';
@@ -6,13 +6,14 @@ import { thumbnailURL } from '../utils/api-url';
 import { AvatarOrInitial } from '../components/UserAvator';
 import { formatDate } from '../utils/date';
 import Comments from '../blocks/Comment';
+import FloatingActions from '../blocks/FloatingAction';
 
 const BlogPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setloading] = useState<boolean>(true);
 
-    useEffect(() => {
+    const fetchBlog = useCallback(() => {
         axxios.get(`/blogs/${id}`).then(res => {
             const data = res.data;
             const parsed = blogSchema.parse(data);
@@ -25,11 +26,14 @@ const BlogPage: React.FC = () => {
         })
     }, [id])
 
+    useEffect(() => {
+        fetchBlog();
+    }, [fetchBlog])
+
     if (loading) { return "Loading..."; }
 
-    if (!blog) { return null; }
-
     return (
+        blog &&
         <>
             <main>
                 {/* Begin Blogs */}
@@ -55,7 +59,7 @@ const BlogPage: React.FC = () => {
                         <ul className="flex gap-3 items-center justify-center my-4">
                             {
                                 blog.tags && blog.tags.split(",").map((tag, index) => (
-                                    <li key={index} className='px-3 py-2 rounded bg-slate-800 font-medium'>{tag}</li>
+                                    <li key={index} className='px-3 py-2 rounded bg-slate-800 font-medium capitalize'>{tag}</li>
                                 ))
                             }
                         </ul>
@@ -68,12 +72,9 @@ const BlogPage: React.FC = () => {
                 {/* End Blogs */}
 
                 {/* Begin Comments */}
-                {
-                    blog.comments && blog.comments.length > 0 &&
-                    <Comments comments={blog.comments} />
-                }
+                <Comments blog={blog} reFetchBlog={fetchBlog} />
             </main>
-            {/* <FloatingActions /> */}
+            <FloatingActions blog={blog} reFetchBlog={fetchBlog} />
         </>
     );
 };

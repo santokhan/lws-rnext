@@ -8,7 +8,7 @@ interface AvatarProps {
 
 const Avatar: FC<AvatarProps> = ({ children, className = "bg-indigo-600" }) => {
     return (
-        <div className={["flex-shrink-0 avatar-img text-white rounded-full w-10 h-10 grid place-items-center font-bold capitalize", className].join(" ")}>
+        <div className={["flex-shrink-0 avatar-img text-white rounded-full w-10 h-10 grid place-items-center font-bold capitalize overflow-hidden", className].join(" ")}>
             {children}
         </div>
     );

@@ -13,6 +13,7 @@ export const blogSchema = z.object({
     thumbnail: z.string().nullable().or(z.object({})),
     author: authorSchema,
     tags: z.string().optional(),
+    isFavorite: z.boolean().optional(),
     likes: z.array(likeSchema),
     comments: z.array(commentSchema).optional(),
     createdAt: z.string(), // Assuming createdAt is always a string in ISO 8601 format

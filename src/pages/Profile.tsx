@@ -3,7 +3,6 @@ import { useAuth } from '../context/auth-context';
 import BlogCard from '../blocks/BlogCard';
 import { Edit } from 'iconsax-react';
 import { ProfileOrInitial } from '../components/ProfileAvatar';
-import ProfileEditButton from '../components/ProfileEditButton';
 import YourBlogs from '../components/TitleOnProfile';
 import NameEmail from '../components/NameEmail';
 import ProfileBio from '../blocks/ProfileBio';
@@ -11,14 +10,14 @@ import ProfileBio from '../blocks/ProfileBio';
 const ProfilePage: React.FC = () => {
     const { user } = useAuth();
 
+    console.log(user);
+
     return (
         user &&
         <>
             <div className="flex flex-col items-center py-8 text-center">
                 {/* profile image */}
-                <ProfileOrInitial thumbnail={user.avatar} initial={user.firstName[0]}>
-                    <ProfileEditButton onClick={() => { }} />
-                </ProfileOrInitial>
+                <ProfileOrInitial thumbnail={user.avatar} initial={user.firstName[0]} />
                 <NameEmail user={user} />
                 {user.bio && <ProfileBio initialBio={user.bio} />}
                 {

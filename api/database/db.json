@@ -117,6 +117,9 @@
       "likes": [
         {
           "id": "346d7a36b3c41f3fbfa2"
+        },
+        {
+          "id": "f14043daecd9bbdebeba"
         }
       ],
       "createdAt": "2024-02-24T09:01:37.581Z",
@@ -192,8 +195,30 @@
       },
       "tags": "programming, algorithm",
       "likes": [],
-      "comments": [],
-      "createdAt": "2024-02-24T09:04:21.871Z"
+      "comments": [
+        {
+          "id": "014f18efc4f38371fc10",
+          "content": "asdfasdgdsgdfg",
+          "author": {
+            "id": "f14043daecd9bbdebeba",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null
+          }
+        },
+        {
+          "id": "68c018900c298cd452ae",
+          "content": "asdfasdgdsgdfgadsfsafsafsafd",
+          "author": {
+            "id": "f14043daecd9bbdebeba",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null
+          }
+        }
+      ],
+      "createdAt": "2024-02-24T09:04:21.871Z",
+      "isFavourite": false
     },
     {
       "id": "9d5598ab44600a379103",

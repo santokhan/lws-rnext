@@ -2,7 +2,6 @@ import React from 'react';
 import BlogCard from '../blocks/BlogCard';
 import { User } from '../schema/user';
 import { ProfileOrInitial } from '../components/ProfileAvatar';
-import ProfileEditButton from '../components/ProfileEditButton';
 import ProfileBio from './ProfileBio';
 import YourBlogs from '../components/TitleOnProfile';
 import NameEmail from '../components/NameEmail';
@@ -16,9 +15,7 @@ const Profile: React.FC<{ data: User }> = ({ data }) => {
                 {/* profile info */}
                 <div className="flex flex-col items-center py-8 text-center">
                     {/* profile image */}
-                    <ProfileOrInitial thumbnail={data.avatar} initial={data.firstName[0]}>
-                        <ProfileEditButton onClick={() => { }} />
-                    </ProfileOrInitial>
+                    <ProfileOrInitial thumbnail={data.avatar} initial={data.firstName[0]} />
                     <NameEmail user={data} />
                     {data.bio && <ProfileBio initialBio={data.bio} />}
                 </div>

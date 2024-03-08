@@ -14,7 +14,7 @@ interface ImagePreviewProps {
 }
 
 const ImagePreview: React.FC<ImagePreviewProps> = ({ thumbnailSetter, previewURL }) => {
-    const [imagePreview, setImagePreview] = useState<string | null>(previewURL);
+    const [imagePreview, setImagePreview] = useState<string | null>(previewURL || '');
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
@@ -77,10 +77,10 @@ export interface CreateBlogFormProps {
     defaultValues: CreatePost;
     onSubmit: SubmitHandler<CreatePost>;
     submitText: string;
-    previewURL: string;
+    previewURL?: string;
 }
 
-const CreateOrUpdateBlogForm: React.FC<CreateBlogFormProps> = ({ defaultValues, onSubmit, submitText, previewURL }) => {
+const CreateOrUpdateBlogForm: React.FC<CreateBlogFormProps> = ({ defaultValues, onSubmit, submitText, previewURL = "" }) => {
     const { register, handleSubmit, setValue } = useForm<CreatePost>({ defaultValues });
     // const navigate = useNavigate();
 
