@@ -55,6 +55,26 @@
       "bio": "",
       "password": "$2b$08$At/U5W1/ASt/F3zWCqOZnO75ftNVjwR.RVf0FEhEdQ0nHkll5tJ4m",
       "favourites": []
+    },
+    {
+      "id": "f14043daecd9bbdebeba",
+      "email": "santokhan1999@gmail.com",
+      "firstName": "Rifat",
+      "lastName": "Santo",
+      "avatar": null,
+      "bio": "",
+      "password": "$2b$08$Ea3FTTPvbgb9vkkCZ0.57.FzJe4XoAbYhviNuCmuXt5cHZ4tvaewq",
+      "favourites": []
+    },
+    {
+      "id": "67eefd6deec858086243",
+      "email": "direct.santo@gmail.com",
+      "firstName": "Rifat",
+      "lastName": "Santo",
+      "avatar": null,
+      "bio": "",
+      "password": "$2b$08$27vMvTsoMHbPxdXmbUVNVOvZ0d5bM4h4Mj/2sYyfiggjfbiFu8.ia",
+      "favourites": []
     }
   ],
   "blogs": [
@@ -69,7 +89,6 @@
         "lastName": "Saha",
         "avatar": "avatar-1708764729322-387087910.png"
       },
-      "tags": "programming, algorithm, prototype, javascript",
       "likes": [
         {
           "id": "346d7a36b3c41f3fbfa2"
@@ -81,39 +100,8 @@
           "id": "3d2dde4b6548275fb066"
         }
       ],
-      "comments": [
-        {
-          "id": "83fbf83e7a33ca0ac1ea",
-          "content": "অনেক সুন্দর হয়েছে",
-          "author": {
-            "id": "346d7a36b3c41f3fbfa2",
-            "firstName": "Tapas",
-            "lastName": "Adhikary",
-            "avatar": "avatar-1708764766479-243448656.png"
-          }
-        },
-        {
-          "id": "a6cb6149982d6641fdcf",
-          "content": "Thank you for this wonderful video. Learning JS for last 1 year and this 'new' key word was giving me headache. I was searching for a better explanation for last one month. Even though I have found some, nothing beats learning in mother tongue. Great job.",
-          "author": {
-            "id": "f810ae24754a6cdc6d01",
-            "firstName": "Akash",
-            "lastName": "Ahmed",
-            "avatar": "avatar-1708764802524-290642702.png"
-          }
-        },
-        {
-          "id": "48554b3ebbc9a9a5187c",
-          "content": "আমি JavaScript এর অনেক  টিউটোরিয়াল দেখেছি অন্যান্য ভাইয়াদের channel থেকে। আমার মনে হয়, কিছু কিছু ভাইদের উদ্দেশ্য হয়তো বিগিনারদের ভীতু করা, ভাগিয়ে দেওয়া যে সহজ বিষয় কঠিন করে বুঝানো। আমি আপনার মধ্যে সেটা একদমই দেখি না। সত্যিকার অর্থে- আপনি একজন বিগিনারবান্ধব।। অসংখ্য ধন্যবাদ ভাইয়া আপনাকে।",
-          "author": {
-            "id": "3d2dde4b6548275fb066",
-            "firstName": "Saad",
-            "lastName": "Hasan",
-            "avatar": "avatar-1708764856675-623317122.jpg"
-          }
-        }
-      ],
-      "createdAt": "2024-02-24T09:09:01.121Z"
+      "createdAt": "2024-02-24T09:09:01.121Z",
+      "isFavourite": false
     },
     {
       "id": "4321b782f360f58c8c85",
@@ -126,22 +114,66 @@
         "lastName": "Hasan",
         "avatar": "avatar-1708764856675-623317122.jpg"
       },
-      "tags": "JavaScript, Async, Scope",
       "likes": [
         {
           "id": "346d7a36b3c41f3fbfa2"
         }
       ],
-      "comments": [
+      "createdAt": "2024-02-24T09:01:37.581Z",
+      "isFavourite": false
+    },
+    {
+      "id": "4321b782f360f58c8c87",
+      "title": "Create Custom Dialog with listview | Android | Java",
+      "content": "Often we might need to create a custom dialog with listview to choose different kinds of actions for a particular option. In certain cases, we use such type of menu items for menus. So, In this post, I will show you how you can create this Custom Dialog with Listview :",
+      "thumbnail": "thumbnail-1708765297564-606798153.png",
+      "author": {
+        "id": "3d2dde4b6548275fb066",
+        "firstName": "Saad",
+        "lastName": "Hasan",
+        "avatar": "avatar-1708764856675-623317122.jpg"
+      },
+      "likes": [
         {
-          "id": "19becccf4ebf3e6cf385",
-          "content": "অনেক সুন্দর হয়েছে",
-          "author": {
-            "id": "346d7a36b3c41f3fbfa2",
-            "firstName": "Tapas",
-            "lastName": "Adhikary",
-            "avatar": "avatar-1708764766479-243448656.png"
-          }
+          "id": "346d7a36b3c41f3fbfa2"
+        }
+      ],
+      "createdAt": "2024-02-24T09:01:37.581Z",
+      "isFavourite": false
+    },
+    {
+      "id": "4321b782f360f58c8c88",
+      "title": "JSON Parse | Android | Java",
+      "content": "JSON stands for JavaScript Object Notation. It is structured, lightweight, human-readable and easy to parse. It’s the best alternative to XML when our android app needs to interchange data from the server. XML parsing is very complex as compare to JSON parsing. First, We have to understand how JSON works. JSON contains Objects, Arrays and key and value. An object is represented by Curly Braces: “{}”, Array is represented by Square Brackets: “[]” Everything between curly braces :{} is called JSON Object & everything between square brackets : [] is a JSON Object. A JSON object can contain different key-value pairs. The value of a key can be an Array. And Array may contain different Objects. And Multiple objects are separated by a comma. Seems difficult?\n\nNo, It’s not. See the Sample JSON file which will help you to understand it by your own and we will use this to fetch data. This JSON file is hosted on https://api.myjson.com/bins/xcuq8",
+      "thumbnail": "thumbnail-4321b782f360f58c8c86.webp",
+      "author": {
+        "id": "3d2dde4b6548275fb066",
+        "firstName": "Saad",
+        "lastName": "Hasan",
+        "avatar": "avatar-1708764856675-623317122.jpg"
+      },
+      "likes": [
+        {
+          "id": "346d7a36b3c41f3fbfa2"
+        }
+      ],
+      "createdAt": "2024-02-24T09:01:37.581Z",
+      "isFavourite": false
+    },
+    {
+      "id": "4321b782f360f58c8c89",
+      "title": "React useMemo Hook",
+      "content": "useMemo is used to memoize the result of a function, meaning it caches the result and returns it when the inputs to that function haven't changed since the last render. It takes two arguments: the function to memoize and an array of dependencies. If any of the dependencies change between renders, the memoized function is re-executed; otherwise, the cached result is returned.",
+      "thumbnail": "thumbnail-4321b782f360f58c8c89.avif",
+      "author": {
+        "id": "3d2dde4b6548275fb066",
+        "firstName": "Saad",
+        "lastName": "Hasan",
+        "avatar": "avatar-1708764856675-623317122.jpg"
+      },
+      "likes": [
+        {
+          "id": "346d7a36b3c41f3fbfa2"
         }
       ],
       "createdAt": "2024-02-24T09:01:37.581Z",
@@ -174,9 +206,7 @@
         "lastName": "Adhikary",
         "avatar": "avatar-1708764766479-243448656.png"
       },
-      "tags": "programming, algorithm, prototype, javascript",
       "likes": [],
-      "comments": [],
       "createdAt": "2024-02-24T16:57:39.425Z"
     },
     {
@@ -190,9 +220,7 @@
         "lastName": "Adhikary",
         "avatar": "avatar-1708764766479-243448656.png"
       },
-      "tags": "programming, algorithm, prototype, javascript",
       "likes": [],
-      "comments": [],
       "createdAt": "2024-02-24T16:59:13.363Z"
     },
     {
@@ -206,105 +234,91 @@
         "lastName": "Saha",
         "avatar": "avatar-1708764729322-387087910.png"
       },
-      "tags": "programming, algorithm, prototype, javascript",
+      "likes": [],
+      "createdAt": "2024-02-24T17:06:43.629Z",
+      "isFavourite": false
+    },
+    {
+      "id": "256e60fdf8994aecceb6",
+      "title": "Title by Santo",
+      "content": "Something...",
+      "thumbnail": "thumbnail-1709902035085-916722168.png",
+      "author": {
+        "id": "f14043daecd9bbdebeba",
+        "firstName": "Rifat",
+        "lastName": "Santo",
+        "avatar": null
+      },
+      "tags": "Web, Python, API, Cloud, Node",
       "likes": [],
       "comments": [],
-      "createdAt": "2024-02-24T17:06:43.629Z"
-    },
-    {
-      "id": "4321b782f360f58c8c86",
-      "title": "এন্ড্রয়েড পার্মিশন",
-      "content": "এন্ড্রয়েড ইউজারদের ললিপপ খাওয়ানোর পাশাপাশি তাদের নিরপত্তার বিষয়টি নিশ্চিত করতে ললিপপ ভার্সন থেকে রান টাইম পার্মিশন নামক একটি অদ্ভুত বস্তু গুগল তাদের খাতায় যোগ করেছে । যেখানে, কোনো এপ ডেভেলোপার যদি তার এপ ইউজারের Storage, Camera, Contacts, Locationঅথবা Microphone সহ অন্যান্য যেকোনো গুরুত্বপূর্ণ এরিয়াতে হাত দিতে চাইলে অবশ্যই ইউজার কতৃক পারমিশন নিয়ে তারপরেই হাতা হাতি করতে হবে । আমার মনে হয় গুগল বাংলাদেশের কথা ভেবেই এই বস্তুটি তাদের খাতায় যুক্ত করেছেন । কারণ, আমরা (৯০% মানুষ) আল্লাহর ওয়াস্তে আমাদের এপ কি কি পার্মিশন নিচ্ছে অথবা Terms & Condition এ কি লেখা আছে সেট না পড়েই সব কিছু তে Allow করে দেই (আমিও এর ব্যাতিক্রম নই 🤓 )। যেটা অনেকটা ঝুকিপূর্ণ, কারণ আমাদের কিছু ভাই রয়েছে (হ্যাকার) যারা RAT বা ট্রজান হর্স দিয়ে খুব সুন্দর করে ভিকটিমের ডেটা নিজের মনে করে চুরি করে নিতে পারে । তা আমি সে বিষয়ে কিছু না বলে আমরা এখানে দেখবো কিভাবে আমরা রানটাইম ইউজারের কাছে পার্মিশন নিতে পারবো । 😁 \n আগের ভার্সন গুলোর মতই আমাদের আগেই AndroidManifest.xml এ পার্মিশন গুলো উল্লেখ করে নিতে হবে",
-      "thumbnail": "thumbnail-1708765297564-606798153.png",
-      "author": {
-        "id": "3d2dde4b6548275fb066",
-        "firstName": "Saad",
-        "lastName": "Hasan",
-        "avatar": "avatar-1708764856675-623317122.jpg"
-      },
-      "tags": "android, java, kotlin, permission",
-      "likes": [
-        {
-          "id": "346d7a36b3c41f3fbfa2"
-        }
-      ],
-      "comments": [
-        {
-          "id": "19becccf4ebf3e6cf385",
-          "content": "অনেক সুন্দর হয়েছে",
-          "author": {
-            "id": "346d7a36b3c41f3fbfa2",
-            "firstName": "Tapas",
-            "lastName": "Adhikary",
-            "avatar": "avatar-1708764766479-243448656.png"
-          }
-        }
-      ],
-      "createdAt": "2024-02-24T09:01:37.581Z",
+      "createdAt": "2024-03-08T03:42:36.660Z",
       "isFavourite": false
     },
     {
-      "id": "4321b782f360f58c8c87",
-      "title": "Create Custom Dialog with listview | Android | Java",
-      "content": "Often we might need to create a custom dialog with listview to choose different kinds of actions for a particular option. In certain cases, we use such type of menu items for menus. So, In this post, I will show you how you can create this Custom Dialog with Listview :",
-      "thumbnail": "thumbnail-1708765297564-606798153.png",
+      "id": "8b720ccd995ab8f608a5",
+      "title": "Title by Santo",
+      "content": "asfdsfsfdsf",
+      "thumbnail": "thumbnail-1709876652644-303734067.png",
       "author": {
-        "id": "3d2dde4b6548275fb066",
-        "firstName": "Saad",
-        "lastName": "Hasan",
-        "avatar": "avatar-1708764856675-623317122.jpg"
+        "id": "f14043daecd9bbdebeba",
+        "firstName": "Rifat",
+        "lastName": "Santo",
+        "avatar": null
       },
-      "tags": "android, java, kotlin, permission",
-      "likes": [
-        {
-          "id": "346d7a36b3c41f3fbfa2"
-        }
-      ],
+      "tags": "Web, Python, API, Cloud",
+      "likes": [],
       "comments": [],
-      "createdAt": "2024-02-24T09:01:37.581Z",
+      "createdAt": "2024-03-08T05:44:12.719Z"
+    },
+    {
+      "id": "cc9868b11c4babd0480b",
+      "title": "Title of Blog",
+      "content": "afdsfdsafdfdsafds",
+      "thumbnail": "thumbnail-1709919917538-214772229.png",
+      "author": {
+        "id": "f14043daecd9bbdebeba",
+        "firstName": "Rifat",
+        "lastName": "Santo",
+        "avatar": null
+      },
+      "tags": "asfdsfdsaf",
+      "likes": [],
+      "comments": [],
+      "createdAt": "2024-03-08T05:46:32.712Z",
       "isFavourite": false
     },
     {
-      "id": "4321b782f360f58c8c88",
-      "title": "JSON Parse | Android | Java",
-      "content": "JSON stands for JavaScript Object Notation. It is structured, lightweight, human-readable and easy to parse. It’s the best alternative to XML when our android app needs to interchange data from the server. XML parsing is very complex as compare to JSON parsing. First, We have to understand how JSON works. JSON contains Objects, Arrays and key and value. An object is represented by Curly Braces: “{}”, Array is represented by Square Brackets: “[]” Everything between curly braces :{} is called JSON Object & everything between square brackets : [] is a JSON Object. A JSON object can contain different key-value pairs. The value of a key can be an Array. And Array may contain different Objects. And Multiple objects are separated by a comma. Seems difficult?\n\nNo, It’s not. See the Sample JSON file which will help you to understand it by your own and we will use this to fetch data. This JSON file is hosted on https://api.myjson.com/bins/xcuq8",
-      "thumbnail": "thumbnail-4321b782f360f58c8c86.webp",
+      "id": "5ec6d6fa1ec26e07cda7",
+      "title": "Analytics & Vector Geometry",
+      "content": "asdfdfdsfdsfdsaf",
+      "thumbnail": "thumbnail-1709919988582-421620154.png",
       "author": {
-        "id": "3d2dde4b6548275fb066",
-        "firstName": "Saad",
-        "lastName": "Hasan",
-        "avatar": "avatar-1708764856675-623317122.jpg"
+        "id": "f14043daecd9bbdebeba",
+        "firstName": "Rifat",
+        "lastName": "Santo",
+        "avatar": null
       },
-      "tags": "android, java, kotlin, permission",
-      "likes": [
-        {
-          "id": "346d7a36b3c41f3fbfa2"
-        }
-      ],
+      "tags": "sadfdsfds",
+      "likes": [],
       "comments": [],
-      "createdAt": "2024-02-24T09:01:37.581Z",
-      "isFavourite": false
+      "createdAt": "2024-03-08T17:46:28.591Z"
     },
     {
-      "id": "4321b782f360f58c8c89",
-      "title": "React useMemo Hook",
-      "content": "useMemo is used to memoize the result of a function, meaning it caches the result and returns it when the inputs to that function haven't changed since the last render. It takes two arguments: the function to memoize and an array of dependencies. If any of the dependencies change between renders, the memoized function is re-executed; otherwise, the cached result is returned.",
-      "thumbnail": "thumbnail-4321b782f360f58c8c89.avif",
+      "id": "a830df315913349e063d",
+      "title": "Analytics & Vector Geometry",
+      "content": "asd",
+      "thumbnail": "thumbnail-1709920004482-809841562.png",
       "author": {
-        "id": "3d2dde4b6548275fb066",
-        "firstName": "Saad",
-        "lastName": "Hasan",
-        "avatar": "avatar-1708764856675-623317122.jpg"
+        "id": "f14043daecd9bbdebeba",
+        "firstName": "Rifat",
+        "lastName": "Santo",
+        "avatar": null
       },
-      "tags": "android, java, kotlin, permission",
-      "likes": [
-        {
-          "id": "346d7a36b3c41f3fbfa2"
-        }
-      ],
+      "tags": "fdsafdsfsadfdsfdsfdsafdsfds",
+      "likes": [],
       "comments": [],
-      "createdAt": "2024-02-24T09:01:37.581Z",
-      "isFavourite": false
+      "createdAt": "2024-03-08T17:46:44.496Z"
     }
   ]
 }

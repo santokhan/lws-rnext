@@ -1,0 +1,55 @@
+{
+    "data": {
+        "user": {
+            "id": "948c1b4b2a3fb8e0462a",
+            "email": "asdg@gmail.com",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null,
+            "bio": "",
+            "favourites": []
+        },
+        "token": {
+            "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0OGMxYjRiMmEzZmI4ZTA0NjJhIiwiZW1haWwiOiJhc2RnQGdtYWlsLmNvbSIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE3MDk3NDk4NjYsImV4cCI6MTcwOTc1MzQ2Nn0.n9ClKsP1EBZgZUzRfpqHfoOhBGO9JMBNQmctkC54l5c",
+            "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0OGMxYjRiMmEzZmI4ZTA0NjJhIiwiZW1haWwiOiJhc2RnQGdtYWlsLmNvbSIsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzA5NzQ5ODY2LCJleHAiOjE3MDk4MzYyNjZ9._WZ92iaqdl_IFxPlA_bBtX3F0P-W9ooOMAlFWhyhRqE"
+        }
+    },
+    "status": 201,
+    "statusText": "Created",
+    "headers": {
+        "content-length": "627",
+        "content-type": "application/json; charset=utf-8"
+    },
+    "config": {
+        "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+        },
+        "adapter": [
+            "xhr",
+            "http"
+        ],
+        "transformRequest": [
+            null
+        ],
+        "transformResponse": [
+            null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "env": {},
+        "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        },
+        "baseURL": "http://localhost:3000",
+        "method": "post",
+        "url": "/auth/register",
+        "data": "{\"firstName\":\"Rifat\",\"lastName\":\"Santo\",\"email\":\"asdg@gmail.com\",\"password\":\"Sasdfdf56561/\"}"
+    },
+    "request": {}
+}
