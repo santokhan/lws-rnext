@@ -68,6 +68,10 @@
         {
           "id": "7c12b4b48531bcc995ae",
           "title": "A guide to Prototype in JavaScript"
+        },
+        {
+          "id": "4321b782f360f58c8c88",
+          "title": "JSON Parse | Android | Java"
         }
       ]
     },
@@ -324,26 +328,6 @@
         },
         {
           "id": "c240dd017e9ecc845ae0",
-          "content": "asdfsadhhdsh",
-          "author": {
-            "id": "f14043daecd9bbdebeba",
-            "firstName": "Rifat",
-            "lastName": "Santo",
-            "avatar": null
-          }
-        },
-        {
-          "id": "e38a500a12a090ccb6d7",
-          "content": "asdfsadhhdsh",
-          "author": {
-            "id": "f14043daecd9bbdebeba",
-            "firstName": "Rifat",
-            "lastName": "Santo",
-            "avatar": null
-          }
-        },
-        {
-          "id": "df68d16a188e14619663",
           "content": "asdfsadhhdsh",
           "author": {
             "id": "f14043daecd9bbdebeba",
