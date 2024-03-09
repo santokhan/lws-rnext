@@ -8,18 +8,23 @@ const Comments: React.FC<{ blog: Blog, reFetchBlog: () => void }> = ({ blog, reF
     const [comment, setComment] = useState("");
 
     if (!blog) { return null; }
+
     const { id, comments } = blog;
 
     function handleSubmit(e: { preventDefault: () => void; }) {
         e.preventDefault();
-        axxios.post(`/blogs/${id}/comment`, { content: comment }).then(res => {
-            const data = res.data;
-            if (data) {
-                reFetchBlog();
-            }
-        }).catch(err => {
-            console.log(err);
-        })
+        if (comment && id) {
+            axxios.post(`/blogs/${id}/comment`, { content: comment }).then(res => {
+                const data = res.data;
+                if (data) {
+                    reFetchBlog();
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+        } else {
+            console.log({ comment, id });
+        }
     }
 
     function handleDelete(commentId: string) {

@@ -64,7 +64,12 @@
       "avatar": null,
       "bio": "",
       "password": "$2b$08$Ea3FTTPvbgb9vkkCZ0.57.FzJe4XoAbYhviNuCmuXt5cHZ4tvaewq",
-      "favourites": []
+      "favourites": [
+        {
+          "id": "7c12b4b48531bcc995ae",
+          "title": "A guide to Prototype in JavaScript"
+        }
+      ]
     },
     {
       "id": "67eefd6deec858086243",
@@ -98,10 +103,13 @@
         },
         {
           "id": "3d2dde4b6548275fb066"
+        },
+        {
+          "id": "f14043daecd9bbdebeba"
         }
       ],
       "createdAt": "2024-02-24T09:09:01.121Z",
-      "isFavourite": false
+      "isFavourite": true
     },
     {
       "id": "4321b782f360f58c8c85",
@@ -293,8 +301,60 @@
       },
       "tags": "Web, Python, API, Cloud",
       "likes": [],
-      "comments": [],
-      "createdAt": "2024-03-08T05:44:12.719Z"
+      "comments": [
+        {
+          "id": "87576ef3bea3859e764f",
+          "content": "asdfsadhhdsh",
+          "author": {
+            "id": "f14043daecd9bbdebeba",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null
+          }
+        },
+        {
+          "id": "df8b8568312f5854ba05",
+          "content": "asdfsadhhdsh",
+          "author": {
+            "id": "f14043daecd9bbdebeba",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null
+          }
+        },
+        {
+          "id": "c240dd017e9ecc845ae0",
+          "content": "asdfsadhhdsh",
+          "author": {
+            "id": "f14043daecd9bbdebeba",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null
+          }
+        },
+        {
+          "id": "e38a500a12a090ccb6d7",
+          "content": "asdfsadhhdsh",
+          "author": {
+            "id": "f14043daecd9bbdebeba",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null
+          }
+        },
+        {
+          "id": "df68d16a188e14619663",
+          "content": "asdfsadhhdsh",
+          "author": {
+            "id": "f14043daecd9bbdebeba",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": null
+          }
+        }
+      ],
+      "createdAt": "2024-03-08T05:44:12.719Z",
+      "isFavourite": false
     },
     {
       "id": "cc9868b11c4babd0480b",

@@ -4,7 +4,7 @@ import { commentSchema } from './comment';
 
 export const likeSchema = z.object({
     id: z.string(),
-}).optional();
+});
 
 export const blogSchema = z.object({
     id: z.string(),
@@ -13,8 +13,8 @@ export const blogSchema = z.object({
     thumbnail: z.string().nullable().or(z.object({})),
     author: authorSchema,
     tags: z.string().optional(),
-    isFavorite: z.boolean().optional(),
-    likes: z.array(likeSchema),
+    isFavourite: z.boolean().optional(),
+    likes: z.array(likeSchema).optional(),
     comments: z.array(commentSchema).optional(),
     createdAt: z.string(), // Assuming createdAt is always a string in ISO 8601 format
 });

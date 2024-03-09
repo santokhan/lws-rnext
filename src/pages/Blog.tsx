@@ -32,50 +32,51 @@ const BlogPage: React.FC = () => {
 
     if (loading) { return "Loading..."; }
 
-    return (
-        blog &&
-        <>
-            <main>
-                {/* Begin Blogs */}
-                <section>
-                    <div className="container text-center py-8">
-                        <h1 className="font-bold text-3xl md:text-5xl">{blog.title}</h1>
-                        <div className="flex justify-center items-center my-4 gap-4">
-                            <Link to={`/profile/${blog.author.id}`} className="flex items-center capitalize space-x-2">
-                                <AvatarOrInitial
-                                    thumbnail={blog.author.avatar}
-                                    initial={blog.author.firstName[0]}
-                                />
-                                <h5 className="text-slate-500 text-sm">{blog.author.firstName} {blog.author.lastName}</h5>
-                            </Link>
-                            <span className="text-sm text-slate-700">{formatDate(blog.createdAt)}</span>
-                            <span className="text-sm text-slate-700">{blog.likes.length} Likes</span>
-                        </div>
-                        {
-                            typeof blog.thumbnail === "string" &&
-                            <img className="mx-auto w-full md:w-8/12 object-cover h-80 md:h-96" src={thumbnailURL(blog.thumbnail)} alt={blog.thumbnail} />
-                        }
-                        {/* Tags */}
-                        <ul className="flex gap-3 items-center justify-center my-4">
-                            {
-                                blog.tags && blog.tags.split(",").map((tag, index) => (
-                                    <li key={index} className='px-3 py-2 rounded bg-slate-800 font-medium capitalize'>{tag}</li>
-                                ))
-                            }
-                        </ul>
-                        {/* Content */}
-                        <div className="mx-auto w-full md:w-10/12 text-slate-300 text-base md:text-lg leading-8 py-2 !text-left">
-                            {blog.content}
-                        </div>
-                    </div>
-                </section>
-                {/* End Blogs */}
+    if (!blog) { return "Blog not found"; }
 
-                {/* Begin Comments */}
-                <Comments blog={blog} reFetchBlog={fetchBlog} />
-            </main>
+    const { tags, thumbnail, likes, author, title, createdAt, content } = blog;
+
+    return (
+        <main>
+            {/* Begin Blogs */}
+            <section>
+                <div className="container text-center py-8">
+                    <h1 className="font-bold text-3xl md:text-5xl">{title}</h1>
+                    <div className="flex justify-center items-center my-4 gap-4">
+                        <Link to={`/profile/${author.id}`} className="flex items-center capitalize space-x-2">
+                            <AvatarOrInitial
+                                thumbnail={author.avatar}
+                                initial={author.firstName[0]}
+                            />
+                            <h5 className="text-slate-500 text-sm">{author.firstName} {author.lastName}</h5>
+                        </Link>
+                        {createdAt && <span className="text-sm text-slate-700">{formatDate(createdAt)}</span>}
+                        {likes && <span className="text-sm text-slate-700">{likes.length} Likes</span>}
+                    </div>
+                    {
+                        typeof thumbnail === "string" &&
+                        <img className="mx-auto w-full md:w-8/12 object-cover h-80 md:h-96" src={thumbnailURL(thumbnail)} alt={thumbnail} />
+                    }
+                    {/* Tags */}
+                    <ul className="flex gap-3 items-center justify-center my-4">
+                        {
+                            tags && tags.split(",").map((tag, index) => (
+                                <li key={index} className='px-3 py-2 rounded bg-slate-800 font-medium capitalize'>{tag}</li>
+                            ))
+                        }
+                    </ul>
+                    {/* Content */}
+                    <div className="mx-auto w-full md:w-10/12 text-slate-300 text-base md:text-lg leading-8 py-2 !text-left">
+                        {content}
+                    </div>
+                </div>
+            </section>
+            {/* End Blogs */}
+
+            {/* Begin Comments */}
+            <Comments blog={blog} reFetchBlog={fetchBlog} />
             <FloatingActions blog={blog} reFetchBlog={fetchBlog} />
-        </>
+        </main>
     );
 };
 

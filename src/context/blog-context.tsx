@@ -65,6 +65,7 @@ export const BlogProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const fetchBlogs = useCallback(() => {
         axios.get(`/blogs?page=1&limit=${limitPerPage}`)
             .then(res => {
+                console.log(res);
                 const data = res.data;
                 const fetchedBlogs = data.blogs;
                 try {
