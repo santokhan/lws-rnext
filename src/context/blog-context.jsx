@@ -51,28 +51,22 @@ export const BlogProvider = ({ children }) => {
                 console.log(res);
                 const data = res.data;
                 const fetchedBlogs = data.blogs;
-                try {
-                    const validated = blogArray.parse(fetchedBlogs);
-                    if (validated) {
-                        if (validated.length === 0) {
-                            setReachedEnd(true);
-                        } else {
-                            setBlogs(validated);
-                        }
+                if (fetchedBlogs) {
+                    if (fetchedBlogs.length === 0) {
+                        setReachedEnd(true);
+                    } else {
+                        setBlogs(fetchedBlogs);
                     }
-                } catch (error) {
-                    console.log(error);
-                } finally {
-                    setLoading(false);
                 }
             })
             .catch(err => {
                 console.log(err);
+            }).finally(() => {
                 setLoading(false);
-            });
+            })
     }, []);
 
-    useEffect(fetchBlogs, [fetchBlogs]); // Run fetchBlogs only once when the component mounts
+    useEffect(fetchBlogs, [fetchBlogs]);
 
     return (
         <BlogContext.Provider value={{
@@ -84,7 +78,6 @@ export const BlogProvider = ({ children }) => {
                     const data = res.data;
                     if (data) {
                         fetchBlogs();
-                        console.log(res);
                     }
                 });
             },

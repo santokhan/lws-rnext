@@ -9,24 +9,8 @@ const BlogEndMessage = () => (
     </div>
 );
 
-const Blogs = () => {
-    const { blogs, loading } = useBlogContext();
-
-    if (loading) {
-        return "Loading...";
-    }
-
-    return (
-        <Fragment>
-            {blogs && blogs.map((blog, i) => (
-                <BlogCard key={i} {...blog} />
-            ))}
-        </Fragment>
-    );
-}
-
 const BlogContent = () => {
-    const { pageIncrement, reachedEnd } = useBlogContext();
+    const { pageIncrement, reachedEnd, blogs } = useBlogContext();
     const observerRef = useRef(null);
     const [isInterSecting, setisInterSecting] = useState(false);
 
@@ -41,22 +25,28 @@ const BlogContent = () => {
             observer.observe(currentTarget);
         }
 
+        if (reachedEnd) {
+            observer.unobserve(currentTarget);
+        }
+
         return () => {
             if (currentTarget) {
                 observer.disconnect()
             }
         };
-    }, []);
+    }, [reachedEnd]);
 
     useEffect(() => {
-        if (isInterSecting && !reachedEnd) {
+        if (isInterSecting) {
             pageIncrement();
         }
-    }, [isInterSecting, pageIncrement, reachedEnd]);
+    }, [isInterSecting, pageIncrement]);
 
     return (
         <div className="flex-grow space-y-4">
-            <Blogs />
+            {blogs && blogs.map((blog, i) => (
+                <BlogCard key={i} {...blog} />
+            ))}
             {reachedEnd && <BlogEndMessage />}
             <div ref={observerRef}></div>
         </div>

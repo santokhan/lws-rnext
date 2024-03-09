@@ -42,8 +42,6 @@ const SearchModal = ({ onClose }) => {
         axxios.get(`/search?q=${query}`).then((res) => {
             const data = res.data;
             const results = data.data;
-            const parsed = blogArray.parse(results);
-            console.log(parsed);
             setFilteredResults(results);
         })
     }, 500); // Adjust the debounce delay as per your requirement

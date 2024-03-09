@@ -2,16 +2,13 @@ import { Link } from 'react-router-dom';
 import { thumbnailURL } from '../utils/api-url';
 import { AvatarOrInitial } from '../components/UserAvator';
 import { formatDate } from '../utils/date';
-import { useAuth } from '../context/auth-context';
 import Action from './Action';
 import React from 'react';
 
 const BlogCard = (props) => {
-    const { user } = useAuth();
-
     if (!props) { return null; }
 
-    const { id, title, content, thumbnail, likes, author, createdAt } = props;
+    const { id, title, content, thumbnail, likes, author, createdAt, userId } = props;
 
     return (
         <div className="border border-white/10 rounded-lg p-3 hover:border-white/20 flex flex-wrap md:flex-nowrap gap-4">
@@ -51,7 +48,7 @@ const BlogCard = (props) => {
                         {likes.length} Likes
                     </div>
                 </div>
-                {user?.id === author.id && <Action id={id} />}
+                {userId === author.id && <Action id={id} />}
             </div>
         </div>
     );

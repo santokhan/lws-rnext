@@ -1,11 +1,8 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import axxios from '../axios/axiosInstance';
-import React from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from '../axios/axiosInstance';
 
-// Create context
-const AuthContext = createContext(undefined);
+const AuthContext = createContext();
 
-// Custom hook for accessing auth context
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
@@ -14,17 +11,14 @@ export const useAuth = () => {
     return context;
 };
 
-// AuthProvider component
 export const AuthProvider = ({ children }) => {
-    // State variables
-    const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
 
-    // Effect to check authentication status on component mount
     useEffect(() => {
         const refreshToken = localStorage.getItem('refreshToken');
-        const user = localStorage.getItem('user');
+        const storedUser = localStorage.getItem('user');
 
         const checkAuthStatus = async () => {
             try {
@@ -32,14 +26,20 @@ export const AuthProvider = ({ children }) => {
                     setIsLoading(false);
                     return;
                 }
-                const response = await axxios.post("/auth/refresh-token", { refreshToken });
+                const response = await axios.post("/auth/refresh-token", { refreshToken });
                 const token = response.data;
                 setIsAuthenticated(true);
                 localStorage.setItem('accessToken', token.accessToken);
                 localStorage.setItem('refreshToken', token.refreshToken);
-                user && setUser(JSON.parse(user));
+                if (storedUser) {
+                    setUser(JSON.parse(storedUser));
+                }
             } catch (error) {
                 console.error("Error refreshing token:", error);
+                setUser(null);
+                setIsAuthenticated(false);
+                localStorage.removeItem('accessToken');
+                localStorage.removeItem('refreshToken');
             } finally {
                 setIsLoading(false);
             }
@@ -47,20 +47,14 @@ export const AuthProvider = ({ children }) => {
 
         checkAuthStatus();
 
-        // Set up token rotation timer
-        const tokenRotationTimer = setInterval(() => {
-            checkAuthStatus();
-        }, 5000);
+        const tokenRotationTimer = setInterval(checkAuthStatus, 600000);
 
-        // Clean up the timer on component unmount
-        return () => {
-            clearInterval(tokenRotationTimer);
-        };
+        return () => clearInterval(tokenRotationTimer);
     }, []);
 
     const login = async (credentials) => {
         try {
-            const res = await axxios.post("/auth/login", credentials);
+            const res = await axios.post("/auth/login", credentials);
             const data = res.data;
             setUser(data.user);
             setIsAuthenticated(true);
@@ -75,7 +69,6 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    // Logout function
     const logout = () => {
         setUser(null);
         setIsAuthenticated(false);
@@ -84,18 +77,8 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("user");
     };
 
-    // Provide auth context value
-    const authContextValue = {
-        user,
-        isLoading,
-        isAuthenticated,
-        login,
-        logout
-    };
-
-    // Return AuthProvider with context value
     return (
-        <AuthContext.Provider value={authContextValue}>
+        <AuthContext.Provider value={{ user, isLoading, isAuthenticated, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

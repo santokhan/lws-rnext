@@ -6,6 +6,25 @@ import { ProfileOrInitial } from '../components/ProfileAvatar';
 import YourBlogs from '../components/TitleOnProfile';
 import NameEmail from '../components/NameEmail';
 import ProfileBio from '../blocks/ProfileBio';
+import { BlogProvider, useBlogContext } from '../context/blog-context';
+
+const MyBlogs = ({ userId }) => {
+    const { blogs } = useBlogContext();
+
+    return (
+        blogs &&
+        <>
+            <YourBlogs />
+            <div className="my-6 space-y-4">
+                {
+                    blogs.filter(blog => blog.author.id === userId).map((blog, i) =>
+                        <BlogCard key={i} {...blog} userId={userId} />
+                    )
+                }
+            </div>
+        </>
+    )
+}
 
 const ProfilePage = () => {
     const { user } = useAuth();
@@ -36,19 +55,9 @@ const ProfilePage = () => {
                     </>
                 }
             </div>
-            {
-                user.favorite &&
-                <>
-                    <YourBlogs />
-                    <div className="my-6 space-y-4">
-                        {
-                            user.favorite.map((blog, i) =>
-                                <BlogCard key={i} {...blog} />
-                            )
-                        }
-                    </div>
-                </>
-            }
+            <BlogProvider>
+                <MyBlogs userId={user.id} />
+            </BlogProvider>
         </>
     );
 };
