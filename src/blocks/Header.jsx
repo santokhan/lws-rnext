@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../assets/logo.svg'
 import Container from '../components/Container';
 import { Link, redirect, useLocation } from 'react-router-dom';
 import { AvatarOrInitial } from '../components/UserAvator';
 import { useAuth } from '../context/auth-context';
 import SearchButton from './SearchButton';
+import axxios from '../axios/axiosInstance';
 
 const Navs = () => {
     const { user, isAuthenticated, logout } = useAuth();
     const location = useLocation();
+    const [userProfile, setuserProfile] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            axxios.get(`/profile/${user.id}`).then(res => {
+                if (res.data) {
+                    setuserProfile(res.data);
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+    }, [user])
 
     function handleLogout() {
         logout();
@@ -41,10 +55,10 @@ const Navs = () => {
                     </li>
                     <li className="flex items-center">
                         {
-                            user &&
+                            user && userProfile &&
                             <>
-                                <AvatarOrInitial thumbnail={user.avatar} initial={user.firstName[0]} className='bg-orange-600' />
-                                <Link to="profile">
+                                <Link to="profile" className='flex items-center gap-2'>
+                                    <AvatarOrInitial thumbnail={userProfile.avatar} initial={user.firstName[0]} className='bg-orange-600' />
                                     <span className="text-white/75 hover:text-white ml-2">
                                         {user.firstName && user.lastName ? `${user.firstName} ${user.lastName}` : user.email}
                                     </span>

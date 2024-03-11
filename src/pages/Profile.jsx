@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/auth-context';
 import BlogCard from '../blocks/BlogCard';
 import { Edit } from 'iconsax-react';
@@ -6,19 +6,17 @@ import { ProfileOrInitial } from '../components/ProfileAvatar';
 import YourBlogs from '../components/TitleOnProfile';
 import NameEmail from '../components/NameEmail';
 import ProfileBio from '../blocks/ProfileBio';
-import { BlogProvider, useBlogContext } from '../context/blog-context';
+import axxios from '../axios/axiosInstance';
 
-const MyBlogs = ({ userId }) => {
-    const { blogs } = useBlogContext();
-
+export const MyBlogs = ({ blogs }) => {
     return (
         blogs &&
         <>
             <YourBlogs />
             <div className="my-6 space-y-4">
                 {
-                    blogs.filter(blog => blog.author.id === userId).map((blog, i) =>
-                        <BlogCard key={i} {...blog} userId={userId} />
+                    blogs.map((blog, i) =>
+                        <BlogCard key={i} {...blog} />
                     )
                 }
             </div>
@@ -28,15 +26,26 @@ const MyBlogs = ({ userId }) => {
 
 const ProfilePage = () => {
     const { user } = useAuth();
+    const [userProfile, setuserProfile] = useState(null);
 
-    console.log(user);
+    useEffect(() => {
+        if (user) {
+            axxios.get(`/profile/${user.id}`).then(res => {
+                if (res.data) {
+                    setuserProfile(res.data);
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+    }, [user])
 
     return (
-        user &&
+        user && userProfile &&
         <>
             <div className="flex flex-col items-center py-8 text-center">
                 {/* profile image */}
-                <ProfileOrInitial thumbnail={user.avatar} initial={user.firstName[0]} />
+                <ProfileOrInitial initial={user.firstName[0]} id={user.id} avatar={userProfile.avatar} />
                 <NameEmail user={user} />
                 {user.bio && <ProfileBio initialBio={user.bio} />}
                 {
@@ -55,9 +64,7 @@ const ProfilePage = () => {
                     </>
                 }
             </div>
-            <BlogProvider>
-                <MyBlogs userId={user.id} />
-            </BlogProvider>
+            <MyBlogs userId={user.id} blogs={userProfile.blogs} />
         </>
     );
 };

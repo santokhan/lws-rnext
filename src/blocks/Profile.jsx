@@ -14,7 +14,7 @@ const Profile = ({ data }) => {
                 {/* profile info */}
                 <div className="flex flex-col items-center py-8 text-center">
                     {/* profile image */}
-                    <ProfileOrInitial thumbnail={data.avatar} initial={data.firstName[0]} />
+                    <ProfileOrInitial avatar={data.avatar} initial={data.firstName[0]} />
                     <NameEmail user={data} />
                     {data.bio && <ProfileBio initialBio={data.bio} />}
                 </div>

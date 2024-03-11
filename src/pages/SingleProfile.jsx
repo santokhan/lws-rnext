@@ -3,11 +3,14 @@ import { useParams } from 'react-router-dom';
 import axxios from '../axios/axiosInstance';
 import Profile from '../blocks/Profile';
 import React from 'react';
+import { MyBlogs } from './Profile';
+import { useAuth } from '../context/auth-context';
 
 const ProfileIndividual = () => {
     const { id } = useParams();
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { user } = useAuth();
 
     useEffect(() => {
         axxios.get(`/profile/${id}`)
@@ -32,7 +35,14 @@ const ProfileIndividual = () => {
     }
 
     return (
-        profile && <Profile data={profile} />
+        profile &&
+        <>
+            <Profile data={profile} />
+            {
+                user && user.id === profile.id &&
+                <MyBlogs userId={profile.id} blogs={profile.blogs} />
+            }
+        </>
     );
 };
 

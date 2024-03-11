@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogCard from './BlogCard';
 import { useBlogContext } from '../context/blog-context';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import IntersectionObserverComponent from '../components/IntersectionObserver';
 
 const BlogEndMessage = () => (
     <div className="text-center py-4 text-gray-500">
@@ -11,36 +11,11 @@ const BlogEndMessage = () => (
 
 const BlogContent = () => {
     const { pageIncrement, reachedEnd, blogs } = useBlogContext();
-    const observerRef = useRef(null);
-    const [isInterSecting, setisInterSecting] = useState(false);
 
-    useEffect(() => {
-        const currentTarget = observerRef.current;
-
-        const observer = new IntersectionObserver(([entry]) => {
-            setisInterSecting(entry.isIntersecting);
-        });
-
-        if (currentTarget) {
-            observer.observe(currentTarget);
-        }
-
-        if (reachedEnd) {
-            observer.unobserve(currentTarget);
-        }
-
-        return () => {
-            if (currentTarget) {
-                observer.disconnect()
-            }
-        };
-    }, [reachedEnd]);
-
-    useEffect(() => {
-        if (isInterSecting) {
-            pageIncrement();
-        }
-    }, [isInterSecting, pageIncrement]);
+    const handleIntersection = (entry) => {
+        // console.log('Intersecting!', entry);
+        pageIncrement();
+    };
 
     return (
         <div className="flex-grow space-y-4">
@@ -48,7 +23,7 @@ const BlogContent = () => {
                 <BlogCard key={i} {...blog} />
             ))}
             {reachedEnd && <BlogEndMessage />}
-            <div ref={observerRef}></div>
+            <IntersectionObserverComponent onIntersection={handleIntersection} />
         </div>
     );
 };

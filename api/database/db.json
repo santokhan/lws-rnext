@@ -66,10 +66,6 @@
       "password": "$2b$08$Ea3FTTPvbgb9vkkCZ0.57.FzJe4XoAbYhviNuCmuXt5cHZ4tvaewq",
       "favourites": [
         {
-          "id": "7c12b4b48531bcc995ae",
-          "title": "A guide to Prototype in JavaScript"
-        },
-        {
           "id": "4321b782f360f58c8c88",
           "title": "JSON Parse | Android | Java"
         }
@@ -84,6 +80,26 @@
       "bio": "",
       "password": "$2b$08$27vMvTsoMHbPxdXmbUVNVOvZ0d5bM4h4Mj/2sYyfiggjfbiFu8.ia",
       "favourites": []
+    },
+    {
+      "id": "99f8fc9b3d5e8739dd07",
+      "email": "santok54@gmail.com",
+      "firstName": "Rifat",
+      "lastName": "Santo",
+      "avatar": "avatar-1710164265304-459374124.png",
+      "bio": "",
+      "password": "$2b$08$Dpnr1PBkF9WvRZtG9tPAeenLnTrCm2JZge0CgUIqLGT89UUipcH6G",
+      "favourites": [
+        {
+          "id": "6b13f0b5ec5b9b0ff28a",
+          "title": "Analytics & Vector Geometry",
+          "tags": "fdsafdsfsadfdsfdsfdsafdsfds"
+        },
+        {
+          "id": "7c12b4b48531bcc995ae",
+          "title": "A guide to Prototype in JavaScript"
+        }
+      ]
     }
   ],
   "blogs": [
@@ -110,10 +126,13 @@
         },
         {
           "id": "f14043daecd9bbdebeba"
+        },
+        {
+          "id": "99f8fc9b3d5e8739dd07"
         }
       ],
       "createdAt": "2024-02-24T09:09:01.121Z",
-      "isFavourite": true
+      "isFavourite": false
     },
     {
       "id": "4321b782f360f58c8c85",
@@ -173,7 +192,7 @@
         }
       ],
       "createdAt": "2024-02-24T09:01:37.581Z",
-      "isFavourite": false
+      "isFavourite": true
     },
     {
       "id": "4321b782f360f58c8c89",
@@ -193,6 +212,48 @@
       ],
       "createdAt": "2024-02-24T09:01:37.581Z",
       "isFavourite": false
+    },
+    {
+      "id": "6b13f0b5ec5b9b0ff28a",
+      "title": "Analytics & Vector Geometry",
+      "content": "asffdsfsdfdsf",
+      "thumbnail": "thumbnail-1710150998582-35771126.png",
+      "author": {
+        "id": "99f8fc9b3d5e8739dd07",
+        "firstName": "Rifat",
+        "lastName": "Santo",
+        "avatar": "avatar-1710150861969-388380376.png"
+      },
+      "tags": "fdsafdsfsadfdsfdsfdsafdsfds",
+      "likes": [
+        {
+          "id": "99f8fc9b3d5e8739dd07"
+        }
+      ],
+      "comments": [
+        {
+          "id": "10b08abd8e79731deb9e",
+          "content": "asdfdsf",
+          "author": {
+            "id": "99f8fc9b3d5e8739dd07",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": "avatar-1710150861969-388380376.png"
+          }
+        },
+        {
+          "id": "5169aa013f029f26ea4b",
+          "content": "asdfdsfsdafdsf",
+          "author": {
+            "id": "99f8fc9b3d5e8739dd07",
+            "firstName": "Rifat",
+            "lastName": "Santo",
+            "avatar": "avatar-1710150861969-388380376.png"
+          }
+        }
+      ],
+      "createdAt": "2024-03-11T09:56:38.593Z",
+      "isFavourite": true
     },
     {
       "id": "6c33b31ecaa2b8917db2",
@@ -388,6 +449,23 @@
       "likes": [],
       "comments": [],
       "createdAt": "2024-03-08T17:46:44.496Z"
+    },
+    {
+      "id": "ec11fb4252c6f227e453",
+      "title": "UI",
+      "content": "asdfdsafs adsfds a dwfdsafdsfds",
+      "thumbnail": "thumbnail-1710163362936-435969720.png",
+      "author": {
+        "id": "99f8fc9b3d5e8739dd07",
+        "firstName": "Rifat",
+        "lastName": "Santo",
+        "avatar": "avatar-1710150861969-388380376.png"
+      },
+      "tags": "Web, Python, API, Cloud, Node",
+      "likes": [],
+      "comments": [],
+      "createdAt": "2024-03-11T13:22:42.954Z",
+      "isFavourite": false
     }
   ]
 }

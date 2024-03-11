@@ -3,10 +3,25 @@ import { thumbnailURL } from '../utils/api-url';
 import { AvatarOrInitial } from '../components/UserAvator';
 import { formatDate } from '../utils/date';
 import Action from './Action';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axxios from '../axios/axiosInstance';
 
 const BlogCard = (props) => {
-    if (!props) { return null; }
+    const [userProfile, setuserProfile] = useState(null);
+
+    useEffect(() => {
+        if (props.id) {
+            axxios.get(`/profile/${props.id}`).then(res => {
+                if (res.data) {
+                    setuserProfile(res.data);
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+    }, [props.id])
+
+    if (!props && !userProfile) { return null; }
 
     const { id, title, content, thumbnail, likes, author, createdAt, userId } = props;
 
@@ -18,7 +33,7 @@ const BlogCard = (props) => {
             }
             <div className="flex-grow mt-2 relative flex flex-col justify-between">
                 <div className="flex-1">
-                    <Link to={`blog/${id}`}>
+                    <Link to={`/blog/${id}`}>
                         <h3 className="text-slate-300 text-xl lg:text-2xl inline-flex">
                             {title}
                         </h3>

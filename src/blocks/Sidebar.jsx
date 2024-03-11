@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import axxios from '../axios/axiosInstance'
 import { Link } from 'react-router-dom';
 import SectionHeader from '../components/SectionHeader';
+import { useAuth } from '../context/auth-context';
 
 export const PopularBlogs = () => {
     const [popularBlogs, setpopularBlogs] = useState(null);
@@ -63,6 +64,7 @@ export const PopularBlogs = () => {
 export const FavoriteBlogs = () => {
     const [favoriteBlogs, setFavoriteBlogs] = useState(null);
     const [loading, setLoading] = useState(true); // Added loading state
+    const { user } = useAuth();
 
     useEffect(() => {
         axxios.get('/blogs/favourites')
@@ -94,22 +96,28 @@ export const FavoriteBlogs = () => {
     return (
         <div className="border border-white/10 rounded-lg p-4 hover:border-white/20">
             <SectionHeader>Your Favorites ❤️</SectionHeader>
-
-            <ul className="space-y-5 my-5">
+            <div className="my-5 space-y-2">
                 {
-                    favoriteBlogs.map(({ id, author, likes, title }) => (
-                        author &&
-                        <li key={id}>
+                    favoriteBlogs.map(({ id, tags, title }) => (
+                        <div key={id}>
                             <Link to={`/blog/${id}`}>
-                                <h3 className="text-slate-400 hover:text-slate-300 transition-all cursor-pointer">
+                                <h3 className="text-slate-300 hover:text-slate-200 transition-all cursor-pointer">
                                     {title}
                                 </h3>
                             </Link>
-                            <p className="text-slate-600 text-sm">by <Link to="profile">{author.firstName} {author.lastName}</Link> <span>·</span> {likes.length} Likes</p>
-                        </li>
+                            <ul className="flex gap-3 items-center justify-start space-y-1">
+                                {
+                                    tags && tags.split(",").map((tag, index) => (
+                                        <Fragment key={index}>
+                                            <span className='py-1 rounded text-slate-500 capitalize'>{tag}</span>
+                                        </Fragment>
+                                    ))
+                                }
+                            </ul>
+                        </div>
                     ))
                 }
-            </ul>
+            </div>
         </div>
     );
 };
