@@ -29,7 +29,7 @@ const ProfilePage = () => {
     const [userProfile, setuserProfile] = useState(null);
 
     useEffect(() => {
-        if (user) {
+        if (user.id) {
             axxios.get(`/profile/${user.id}`).then(res => {
                 if (res.data) {
                     setuserProfile(res.data);

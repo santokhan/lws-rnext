@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Avatar, { AvatarOrInitial } from '../components/UserAvator';
 import axxios from '../axios/axiosInstance';
 import { Trash } from 'iconsax-react';
+import { Link } from 'react-router-dom';
 
 const Comments = ({ blog, reFetchBlog }) => {
     const [comment, setComment] = useState("");
@@ -43,7 +44,9 @@ const Comments = ({ blog, reFetchBlog }) => {
                 <div className="mx-auto md:w-10/12 container">
                     <h2 className="text-3xl font-bold my-8">Comments ({comments?.length || 0})</h2>
                     <div className="flex items-start gap-4">
-                        <AvatarOrInitial initial={blog.author.firstName[0]} id={blog.author.id} thumbnail={blog.author.avatar} />
+                        <Link to={`/profile/${blog.author.id}`}>
+                            <AvatarOrInitial initial={blog.author.firstName[0]} id={blog.author.id} thumbnail={blog.author.avatar} />
+                        </Link>
                         <form onSubmit={handleSubmit}
                             className="flex-grow">
                             <textarea required onChange={(e) => { setComment(e.target.value) }} className="w-full bg-[#030317] border border-slate-500 text-slate-300 p-4 rounded-md focus:outline-none" placeholder="Write a comment" defaultValue={""} />
@@ -58,11 +61,13 @@ const Comments = ({ blog, reFetchBlog }) => {
                         return (
                             comment &&
                             <div key={index} className="flex items-start gap-4 my-8">
-                                <Avatar className='bg-orange-600'>
-                                    <span className="">{blog.author.firstName[0]}</span>
-                                </Avatar>
+                                <Link to={`/profile/${blog.author.id}`}>
+                                    <AvatarOrInitial initial={blog.author.firstName[0]} id={blog.author.id} thumbnail={blog.author.avatar} />
+                                </Link>
                                 <div className="flex-grow">
-                                    <h5 className="text-slate -500 font-bold">{comment.author.firstName} {comment.author.lastName}</h5>
+                                    <Link to={`/profile/${comment.author.id}`}>
+                                        <h5 className="text-slate -500 font-bold">{comment.author.firstName} {comment.author.lastName}</h5>
+                                    </Link>
                                     <p className="text-slate-300">{comment.content}</p>
                                 </div>
                                 <div className="w-10 h-10 flex justify-center items-center">

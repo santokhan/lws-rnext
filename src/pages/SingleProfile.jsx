@@ -13,37 +13,39 @@ const ProfileIndividual = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        axxios.get(`/profile/${id}`)
-            .then(res => {
-                console.log(res);
-                const data = res.data;
-                try {
-                    if (data) {
-                        setProfile(data);
+        if (id) {
+            setLoading(true)
+            axxios.get(`/profile/${id}`)
+                .then(res => {
+                    console.log(res);
+                    const data = res.data;
+                    try {
+                        if (data) {
+                            setProfile(data);
+                        }
+                    } catch (error) {
+                        console.log(error);
                     }
-                } catch (error) {
-                    console.log(error);
-                }
-            })
-            .catch(err => { console.log(err) })
-            .finally(() => { setLoading(false) });
-        return () => { }
+                })
+                .catch(err => { console.log(err) })
+                .finally(() => { setLoading(false) });
+        }
     }, [id])
 
     if (loading) {
         return "Loading..."
+    } else {
+        return (
+            profile &&
+            <>
+                <Profile data={profile} />
+                {
+                    user && user.id === profile.id &&
+                    <MyBlogs userId={profile.id} blogs={profile.blogs} />
+                }
+            </>
+        );
     }
-
-    return (
-        profile &&
-        <>
-            <Profile data={profile} />
-            {
-                user && user.id === profile.id &&
-                <MyBlogs userId={profile.id} blogs={profile.blogs} />
-            }
-        </>
-    );
 };
 
 export default ProfileIndividual;

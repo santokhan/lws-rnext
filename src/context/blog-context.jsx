@@ -29,14 +29,12 @@ export const BlogProvider = ({ children }) => {
         setLoading(true);
         axxios.get(`/blogs?page=${currentPage}&limit=${limitPerPage}`)
             .then(res => {
-                console.log(res);
-                const data = res.data;
-                const fetchedBlogs = data.blogs;
-                if (fetchedBlogs) {
-                    if (fetchedBlogs.length === 0) {
+                const blogs = res.data.blogs;
+                if (blogs) {
+                    if (blogs.length === 0) {
                         setReachedEnd(true);
                     } else {
-                        setBlogs(prevBlogs => prevBlogs ? [...prevBlogs, ...fetchedBlogs] : fetchedBlogs);
+                        setBlogs(prevBlogs => prevBlogs ? [...prevBlogs, ...blogs] : blogs);
                     }
 
                 }
@@ -48,14 +46,12 @@ export const BlogProvider = ({ children }) => {
     const fetchBlogs = useCallback(() => {
         axxios.get(`/blogs?page=1&limit=${limitPerPage}`)
             .then(res => {
-                console.log(res);
-                const data = res.data;
-                const fetchedBlogs = data.blogs;
-                if (fetchedBlogs) {
-                    if (fetchedBlogs.length === 0) {
+                const blogs = res.data.blogs;
+                if (blogs) {
+                    if (blogs.length === 0) {
                         setReachedEnd(true);
                     } else {
-                        setBlogs(fetchedBlogs);
+                        setBlogs(blogs);
                     }
                 }
             })

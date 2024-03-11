@@ -10,8 +10,8 @@ const BlogCard = (props) => {
     const [userProfile, setuserProfile] = useState(null);
 
     useEffect(() => {
-        if (props.id) {
-            axxios.get(`/profile/${props.id}`).then(res => {
+        if (props.author.id) {
+            axxios.get(`/profile/${props.author.id}`).then(res => {
                 if (res.data) {
                     setuserProfile(res.data);
                 }
@@ -19,7 +19,7 @@ const BlogCard = (props) => {
                 console.log(err);
             });
         }
-    }, [props.id])
+    }, [props])
 
     if (!props && !userProfile) { return null; }
 
@@ -29,7 +29,9 @@ const BlogCard = (props) => {
         <div className="border border-white/10 rounded-lg p-3 hover:border-white/20 flex flex-wrap md:flex-nowrap gap-4">
             {
                 typeof thumbnail === "string" &&
-                <img className="rounded-md flex-shrink-0 w-full md:w-80 aspect-video object-cover" src={thumbnailURL(thumbnail)} alt={thumbnail} />
+                <Link to={`/blog/${id}`} className="rounded-md flex-shrink-0 w-full md:w-80">
+                    <img className="w-full aspect-video object-cover" src={thumbnailURL(thumbnail)} alt={thumbnail} />
+                </Link>
             }
             <div className="flex-grow mt-2 relative flex flex-col justify-between">
                 <div className="flex-1">

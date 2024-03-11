@@ -13,7 +13,6 @@ const BlogContent = () => {
     const { pageIncrement, reachedEnd, blogs } = useBlogContext();
 
     const handleIntersection = (entry) => {
-        // console.log('Intersecting!', entry);
         pageIncrement();
     };
 
