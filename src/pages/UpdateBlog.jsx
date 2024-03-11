@@ -13,7 +13,6 @@ const ProfileIndividual = () => {
     useEffect(() => {
         axxios.get(`/profile/${id}`)
             .then(res => {
-                console.log(res);
                 const data = res.data;
                 try {
                     if (data) {

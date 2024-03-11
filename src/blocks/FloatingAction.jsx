@@ -21,7 +21,6 @@ const FloatingActions = ({ blog, reFetchBlog }) => {
         axxios.patch(`/blogs/${id}/favourite`).then(res => {
             const data = res.data;
             if (data) {
-                console.log(data);
                 reFetchBlog();
             }
         }).catch(err => {

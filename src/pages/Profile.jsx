@@ -59,7 +59,7 @@ const ProfilePage = () => {
             <div className="flex flex-col items-center py-8 text-center">
                 <ProfileOrInitial initial={user.firstName[0]} id={user.id} avatar={userProfile.avatar} />
                 <NameEmail user={user} />
-                <ProfileBio initialBio={userProfile.bio} onEditBio={onEditBio} />
+                <ProfileBio initialBio={userProfile.bio} onEditBio={onEditBio} editable={user.id === userProfile.id} />
             </div>
             <MyBlogs userId={user.id} blogs={userProfile.blogs} />
         </>

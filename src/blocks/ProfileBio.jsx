@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from 'react';
 import axxios from "../axios/axiosInstance";
 
-const ProfileBio = ({ initialBio, onEditBio }) => {
+const ProfileBio = ({ initialBio, onEditBio, editable }) => {
     const [bio, setBio] = useState(initialBio);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -33,7 +33,7 @@ const ProfileBio = ({ initialBio, onEditBio }) => {
                     </div>
                 )}
                 {/* Edit Bio button. The Above bio will be editable when clicking on the button */}
-                {!isEditing && (
+                {editable && !isEditing && (
                     <button className="flex-center h-7 w-7 rounded-full" onClick={handleEditClick}>
                         <Edit className="w-4 h-4" />
                     </button>
