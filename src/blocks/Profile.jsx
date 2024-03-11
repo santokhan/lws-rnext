@@ -20,7 +20,6 @@ const Profile = ({ data }) => {
                     <NameEmail user={data} />
                     {data.bio && <ProfileBio initialBio={data.bio} editable={user.id === data.id} />}
                 </div>
-
                 {
                     data.favorite &&
                     <>
