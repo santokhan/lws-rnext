@@ -4,19 +4,21 @@ import { ProfileOrInitial } from '../components/ProfileAvatar';
 import ProfileBio from './ProfileBio';
 import YourBlogs from '../components/TitleOnProfile';
 import NameEmail from '../components/NameEmail';
+import { useAuth } from '../context/auth-context';
 
 const Profile = ({ data }) => {
-    if (!data) { return null; }
+    const { user } = useAuth();
+
+    if (!data) return null;
+    if (!user) return null;
 
     return (
         <main className="mx-auto max-w-[1020px] py-8">
             <div className="container">
-                {/* profile info */}
                 <div className="flex flex-col items-center py-8 text-center">
-                    {/* profile image */}
                     <ProfileOrInitial avatar={data.avatar} initial={data.firstName[0]} />
                     <NameEmail user={data} />
-                    {data.bio && <ProfileBio initialBio={data.bio} />}
+                    {data.bio && <ProfileBio initialBio={data.bio} editable={user.id === data.id} />}
                 </div>
 
                 {
