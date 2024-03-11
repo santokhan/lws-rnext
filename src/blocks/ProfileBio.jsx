@@ -1,8 +1,9 @@
 import { Edit } from "iconsax-react";
 import { useState } from "react";
 import React from 'react';
+import axxios from "../axios/axiosInstance";
 
-const ProfileBio = ({ initialBio }) => {
+const ProfileBio = ({ initialBio, onEditBio }) => {
     const [bio, setBio] = useState(initialBio);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -11,9 +12,7 @@ const ProfileBio = ({ initialBio }) => {
     };
 
     const handleSaveClick = () => {
-        // Save the edited bio
-        // For example, you can send a request to update the bio on the server
-        console.log("Bio saved:", bio);
+        onEditBio(bio);
         setIsEditing(false);
     };
 
@@ -24,7 +23,7 @@ const ProfileBio = ({ initialBio }) => {
                     <textarea
                         value={bio}
                         onChange={(e) => setBio(e.target.value)}
-                        rows={10}
+                        rows={6}
                         cols={100}
                         className="flex-1 bg-transparent focus:outline-none text-white resize-none border rounded-lg border-white/10 p-4"
                     />

@@ -33,30 +33,27 @@ export const PopularBlogs = () => {
         popularBlogs &&
         <div className="border border-white/10 rounded-lg p-4 hover:border-white/20">
             <SectionHeader>Most Popular 👍️</SectionHeader>
-
             <ul className="space-y-5 my-5">
                 {
-                    popularBlogs.map(({ id, author, likes, title }) => {
-                        return (
-                            <li key={id}>
-                                <Link to={`/blog/${id}`}>
-                                    <h3 className="text-slate-400 hover:text-slate-300 transition-all cursor-pointer">
-                                        {title}
-                                    </h3>
-                                </Link>
-                                <p className="text-slate-600 text-sm">by <a href="./profile.html">
-                                    {author.firstName} {author.lastName}</a> <span>·</span> {likes.length} Likes
-                                </p>
-                            </li>
-                        )
-                    })
+                    popularBlogs.map(({ id, author, likes, title }) => (
+                        <li key={id}>
+                            <Link to={`/blog/${id}`}>
+                                <h3 className="text-slate-400 hover:text-slate-300 transition-all cursor-pointer">
+                                    {title}
+                                </h3>
+                            </Link>
+                            <p className="text-slate-600 text-sm">by <Link to={`/profile/${author.id}`}>
+                                {author.firstName} {author.lastName}</Link> <span>·</span> {likes.length} Likes
+                            </p>
+                        </li>
+                    ))
                 }
             </ul>
         </div>
     );
 };
 
-export const FavBlogs = ({ id, title, tags }) => {
+export const FavBlogs = ({ id }) => {
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(null);
 
@@ -75,17 +72,19 @@ export const FavBlogs = ({ id, title, tags }) => {
     }, [id]);
 
     if (loading) return <Loading />;
+    if (!blog) return null;
+
+    const { title, author, likes } = blog;
 
     return (
-        blog &&
         <li>
             <Link to={`/blog/${id}`}>
                 <h3 className="text-slate-400 hover:text-slate-300 transition-all cursor-pointer">
-                    {blog.title}
+                    {title}
                 </h3>
             </Link>
-            <p className="text-slate-600 text-sm">by <a href="./profile.html">
-                {blog.author.firstName} {blog.author.lastName}</a> <span>·</span> {blog.likes.length} Likes
+            <p className="text-slate-600 text-sm">by <Link to={`/profile/${author.id}`}>
+                {author.firstName} {author.lastName}</Link> <span>·</span> {likes.length} Likes
             </p>
         </li>
     )
@@ -113,11 +112,11 @@ export const FavoriteBlogs = () => {
         favoriteBlogs.length > 0 &&
         <div className="border border-white/10 rounded-lg p-4 hover:border-white/20">
             <SectionHeader>Your Favorites ❤️</SectionHeader>
-            <ul className="my-5 space-y-2">
+            <ul className="my-5 space-y-5">
                 {
                     favoriteBlogs.map(({ id, tags, title }) => (
                         <Fragment key={id}>
-                            <FavBlogs key={id} id={id} tags={tags} title={title} />
+                            <FavBlogs id={id} tags={tags} title={title} />
                         </Fragment>
                     ))
                 }

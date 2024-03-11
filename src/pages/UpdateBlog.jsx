@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axxios from '../axios/axiosInstance';
 import Profile from '../blocks/Profile';
 import React from 'react';
+import Loading from '../components/Loading'
 
 const ProfileIndividual = () => {
     const { id } = useParams();
@@ -27,9 +28,7 @@ const ProfileIndividual = () => {
         return () => { }
     }, [id])
 
-    if (loading) {
-        return "Loading..."
-    }
+    if (loading) return <Loading />;
 
     return (
         profile && <Profile data={profile} />

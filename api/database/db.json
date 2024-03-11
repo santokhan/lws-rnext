@@ -86,8 +86,8 @@
       "email": "santok54@gmail.com",
       "firstName": "Rifat",
       "lastName": "Santo",
-      "avatar": "avatar-1710164265304-459374124.png",
-      "bio": "",
+      "avatar": "avatar-1710171427020-5851112.png",
+      "bio": "asdfdsghgdsgdsfgdsfsfsdf",
       "password": "$2b$08$Dpnr1PBkF9WvRZtG9tPAeenLnTrCm2JZge0CgUIqLGT89UUipcH6G",
       "favourites": [
         {
@@ -98,6 +98,10 @@
         {
           "id": "7c12b4b48531bcc995ae",
           "title": "A guide to Prototype in JavaScript"
+        },
+        {
+          "id": "965584a7b281d9f99c14",
+          "title": "What do you need to know to become proficient in JavaScript?"
         }
       ]
     }
@@ -132,7 +136,7 @@
         }
       ],
       "createdAt": "2024-02-24T09:09:01.121Z",
-      "isFavourite": false
+      "isFavourite": true
     },
     {
       "id": "4321b782f360f58c8c85",
@@ -192,7 +196,7 @@
         }
       ],
       "createdAt": "2024-02-24T09:01:37.581Z",
-      "isFavourite": true
+      "isFavourite": false
     },
     {
       "id": "4321b782f360f58c8c89",
@@ -240,19 +244,28 @@
             "lastName": "Santo",
             "avatar": "avatar-1710150861969-388380376.png"
           }
-        },
-        {
-          "id": "5169aa013f029f26ea4b",
-          "content": "asdfdsfsdafdsf",
-          "author": {
-            "id": "99f8fc9b3d5e8739dd07",
-            "firstName": "Rifat",
-            "lastName": "Santo",
-            "avatar": "avatar-1710150861969-388380376.png"
-          }
         }
       ],
       "createdAt": "2024-03-11T09:56:38.593Z",
+      "isFavourite": true
+    },
+    {
+      "id": "965584a7b281d9f99c14",
+      "title": "What do you need to know to become proficient in JavaScript?",
+      "content": "JavaScript is everywhere! It's the web browser's language and helps you create web, mobile, and desktop applications. Today, JavaScript is not limited to the client side alone; it is equally popular as the base of server-side frameworks like Node.js and Deno. If you are considering picking up and mastering a programming language, JavaScript is a safe bet.\n\nRecently I have focused on chalking out a path about how to learn JavaScript effectively using a learning model. Please check it out in the video below. I believe that it will help you to learn the language faster.\n\nThe video above talks about how learning JavaScript effectively, and in this article, we will focus on the what part. We will go over the topics that you must consider putting on your plate when you plan to learn JavaScript.\n\nWe will also get introduced to a community-driven JavaScript Roadmap Guide that you can make use of in learning the language and also can contribute to. We will mention the chapters from the guide occasionally, but if you are interested, please feel free to check out the entire guide early.",
+      "thumbnail": "thumbnail-1708793953356-660744456.png",
+      "author": {
+        "id": "346d7a36b3c41f3fbfa2",
+        "firstName": "Tapas",
+        "lastName": "Adhikary",
+        "avatar": "avatar-1708764766479-243448656.png"
+      },
+      "likes": [
+        {
+          "id": "99f8fc9b3d5e8739dd07"
+        }
+      ],
+      "createdAt": "2024-02-24T16:59:13.363Z",
       "isFavourite": true
     },
     {
@@ -306,20 +319,6 @@
       },
       "likes": [],
       "createdAt": "2024-02-24T16:57:39.425Z"
-    },
-    {
-      "id": "965584a7b281d9f99c14",
-      "title": "What do you need to know to become proficient in JavaScript?",
-      "content": "JavaScript is everywhere! It's the web browser's language and helps you create web, mobile, and desktop applications. Today, JavaScript is not limited to the client side alone; it is equally popular as the base of server-side frameworks like Node.js and Deno. If you are considering picking up and mastering a programming language, JavaScript is a safe bet.\n\nRecently I have focused on chalking out a path about how to learn JavaScript effectively using a learning model. Please check it out in the video below. I believe that it will help you to learn the language faster.\n\nThe video above talks about how learning JavaScript effectively, and in this article, we will focus on the what part. We will go over the topics that you must consider putting on your plate when you plan to learn JavaScript.\n\nWe will also get introduced to a community-driven JavaScript Roadmap Guide that you can make use of in learning the language and also can contribute to. We will mention the chapters from the guide occasionally, but if you are interested, please feel free to check out the entire guide early.",
-      "thumbnail": "thumbnail-1708793953356-660744456.png",
-      "author": {
-        "id": "346d7a36b3c41f3fbfa2",
-        "firstName": "Tapas",
-        "lastName": "Adhikary",
-        "avatar": "avatar-1708764766479-243448656.png"
-      },
-      "likes": [],
-      "createdAt": "2024-02-24T16:59:13.363Z"
     },
     {
       "id": "210470a416ea45b625b8",

@@ -5,6 +5,7 @@ import Profile from '../blocks/Profile';
 import React from 'react';
 import { MyBlogs } from './Profile';
 import { useAuth } from '../context/auth-context';
+import Loading from '../components/Loading';
 
 const ProfileIndividual = () => {
     const { id } = useParams();
@@ -32,20 +33,18 @@ const ProfileIndividual = () => {
         }
     }, [id])
 
-    if (loading) {
-        return "Loading..."
-    } else {
-        return (
-            profile &&
-            <>
-                <Profile data={profile} />
-                {
-                    user && user.id === profile.id &&
-                    <MyBlogs userId={profile.id} blogs={profile.blogs} />
-                }
-            </>
-        );
-    }
+    if (loading) return <Loading />;
+
+    return (
+        profile &&
+        <>
+            <Profile data={profile} />
+            {
+                user && user.id === profile.id &&
+                <MyBlogs userId={profile.id} blogs={profile.blogs} />
+            }
+        </>
+    );
 };
 
 export default ProfileIndividual;

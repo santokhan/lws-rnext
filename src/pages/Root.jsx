@@ -4,6 +4,7 @@ import Container from "../components/Container";
 import Header from "../blocks/Header";
 import { useAuth } from "../context/auth-context";
 import React from 'react';
+import Loading from "../components/Loading";
 
 const RootLayout = () => {
     const { isLoading } = useAuth();
@@ -14,7 +15,7 @@ const RootLayout = () => {
             <Container>
                 {
                     isLoading ?
-                        <p>Loading...</p>
+                        <Loading />
                         :
                         <Outlet />
                 }

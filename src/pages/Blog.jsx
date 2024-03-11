@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import axxios from '../axios/axiosInstance';
 import { thumbnailURL } from '../utils/api-url';
 import { AvatarOrInitial } from '../components/UserAvator';
+import Loading from '../components/Loading';
 import { formatDate } from '../utils/date';
 import Comments from '../blocks/Comment';
 import FloatingActions from '../blocks/FloatingAction';
@@ -26,9 +27,8 @@ const BlogPage = () => {
         fetchBlog();
     }, [fetchBlog]);
 
-    if (loading) { return "Loading..."; }
-
-    if (!blog) { return "Blog not found"; }
+    if (loading) return <Loading />;
+    if (!blog) return "Blog not found";
 
     const { tags, thumbnail, likes, author, title, createdAt, content } = blog;
 
