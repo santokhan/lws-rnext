@@ -1,7 +1,5 @@
+import React, { useState } from 'react';
 import { Edit } from "iconsax-react";
-import { useState } from "react";
-import React from 'react';
-import axxios from "../axios/axiosInstance";
 
 const ProfileBio = ({ initialBio, onEditBio, editable }) => {
     const [bio, setBio] = useState(initialBio);

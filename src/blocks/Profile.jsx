@@ -18,7 +18,7 @@ const Profile = ({ data }) => {
                 <div className="flex flex-col items-center py-8 text-center">
                     <ProfileOrInitial avatar={data.avatar} initial={data.firstName[0]} />
                     <NameEmail user={data} />
-                    {data.bio && <ProfileBio initialBio={data.bio} editable={user.id === data.id} />}
+                    {data.bio && <ProfileBio initialBio={data.bio} editable={user.id == data.id} />}
                 </div>
                 {
                     data.favorite &&
