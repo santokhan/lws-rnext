@@ -75,6 +75,7 @@ export const FavBlogs = ({ id, title, tags }) => {
     }, [id]);
 
     if (loading) return <Loading />;
+
     return (
         blog &&
         <li>
@@ -109,7 +110,7 @@ export const FavoriteBlogs = () => {
     if (loading) return <Loading />;
 
     return (
-        favoriteBlogs &&
+        favoriteBlogs.length > 0 &&
         <div className="border border-white/10 rounded-lg p-4 hover:border-white/20">
             <SectionHeader>Your Favorites ❤️</SectionHeader>
             <ul className="my-5 space-y-2">
